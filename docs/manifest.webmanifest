@@ -1,0 +1,19 @@
+{
+  "name": "Opstanak — Vodič za preživljavanje za Srbiju",
+  "short_name": "Opstanak",
+  "description": "Praktičan vodič za preživljavanje na srpskom jeziku: nuklearna opasnost, pandemija, poplave, zemljotres, nestanak struje. Veštine, zalihe i plan za porodicu.",
+  "lang": "sr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f1210",
+  "theme_color": "#0f1210",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="sr" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan i zalihe · Opstanak</title>
+<meta name="description" content="Izračunaj koliko vode i hrane treba tvojoj porodici, pa odštampaj ili štikliraj listu: torba za 72 sata, kućne zalihe, dokumenta i porodični plan.">
+<meta name="theme-color" content="#0f1210">
+<meta property="og:title" content="Plan i zalihe · Opstanak">
+<meta property="og:description" content="Izračunaj koliko vode i hrane treba tvojoj porodici, pa odštampaj ili štikliraj listu: torba za 72 sata, kućne zalihe, dokumenta i porodični plan.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sr_RS">
+
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+<script src="../assets/plan.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Pređi na sadržaj</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../">
+      <img src="../assets/icon.svg" alt="" width="28" height="28">
+      <span>Opstanak</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Meni</button>
+    <nav id="site-nav" class="site-nav" aria-label="Glavna navigacija">
+      <ul><li><a href="../scenariji/">Scenariji</a></li><li><a href="../vestine/">Veštine</a></li><li><a href="../plan/" aria-current="true">Plan i zalihe</a></li><li><a href="../srbija/">Srbija</a></li><li><a href="../o-projektu/">O projektu</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs" aria-label="Putanja"><a href="../">Početna</a><span aria-hidden="true">›</span><span aria-current="page">Plan i zalihe</span></nav>
+    <p class="eyebrow">Plan i zalihe</p>
+    <h1>Plan i zalihe: kalkulator i lista za proveru</h1>
+    <p class="lead">Izračunaj koliko vode i hrane treba tvojoj porodici, pa odštampaj ili štikliraj listu: torba za 72 sata, kućne zalihe, dokumenta i porodični plan.</p>
+    <p class="meta"></p>
+  </header>
+  <article class="page">
+    
+    <div class="callout tip">
+  <strong>Kako da koristiš ovu stranicu</strong>
+  <p>1) Izračunaj potrebe. 2) Prođi listu i štikliraj šta već imaš. 3) Dopuni ostalo u sledeće tri kupovine. Štikliranja ostaju sačuvana u tvom pregledaču i ne šalju se nigde.</p>
+</div>
+
+<h2 id="kalkulator-zaliha">Kalkulator zaliha</h2>
+<div class="calc wide" style="max-width:none">
+  <form id="calc-form">
+    <label>Broj osoba
+      <input type="number" id="calc-people" min="1" max="20" value="3" inputmode="numeric">
+    </label>
+    <label>Trajanje zaliha
+      <select id="calc-days">
+        <option value="3">72 sata (3 dana)</option>
+        <option value="14" selected>2 nedelje</option>
+        <option value="30">1 mesec</option>
+        <option value="90">3 meseca</option>
+      </select>
+    </label>
+  </form>
+  <div class="calc-out" id="calc-out" aria-live="polite"></div>
+  <p class="small-note">Računica: 3 L vode po osobi dnevno (za piće i kuvanje), oko 2200 kcal dnevno i oko 0,65 kg suve hrane po osobi dnevno, 5 g soli dnevno. Povećaj za decu u rastu, trudnice, bolesne, hladnoću i naporan rad.</p>
+</div>
+
+<h2 id="cetiri-nivoa-pripreme">Četiri nivoa pripreme</h2>
+<ol>
+  <li><strong>72 sata:</strong> torba za evakuaciju i osnovna kućna zaliha (ispod).</li>
+  <li><strong>2 nedelje:</strong> voda, hrana i lekovi za porodicu, rešo, ogrev, higijena.</li>
+  <li><strong>3 meseca:</strong> zimnica i zalihe osnovnih namirnica, filteri za vodu, rezervni izvor energije, kurs prve pomoći.</li>
+  <li><strong>Dugoročno:</strong> zemlja, seme, bunar, drva, zajednica. Vidi <a href="../scenariji/dugorocno-prezivljavanje/">Svet posle</a>.</li>
+</ol>
+
+<h2 id="lista-za-proveru">Lista za proveru</h2>
+<div class="list-actions">
+  <button type="button" class="btn" id="print-btn">Odštampaj listu</button>
+  <button type="button" class="btn" id="reset-btn">Poništi sve štikle</button>
+</div>
+<div class="progress" aria-hidden="true"><i id="overall-bar"></i></div>
+<p id="overall-text" class="small-note" aria-live="polite"></p>
+<div id="checklists"></div>
+
+<noscript><p>Za interaktivnu listu potreban je JavaScript. Dole je spisak bez štikliranja: voda, hrana, lampa, radio, powerbank, prva pomoć, lekovi, odeća, dokumenta, gotovina.</p></noscript>
+
+<h2 id="sledeci-korak">Sledeći korak</h2>
+<p>Zalihe bez znanja vrede upola. Nastavi na <a href="../vestine/">veštine</a>, a počni od prva dva prioriteta: <a href="../vestine/mentalna-otpornost/">um</a> i <a href="../vestine/skloniste-i-toplota/">toplota</a>.</p>
+
+    
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Opstanak</strong> — Vodič za preživljavanje za Srbiju. Sadržaj je edukativan i ne zamenjuje obuku, lekara ni zvanična uputstva nadležnih službi. U stvarnoj opasnosti prvo slušaj uputstva Sektora za vanredne situacije i zovi <strong>112</strong>.</p>
+    <p class="small"><a href="../o-projektu/">O projektu</a> · <a href="../srbija/">Korisni brojevi</a> · Sajt radi i bez interneta nakon prve posete.</p>
+  </div>
+</footer>
+</body>
+</html>

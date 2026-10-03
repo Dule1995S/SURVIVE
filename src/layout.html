@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="sr" data-root="{{root}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="theme-color" content="#0f1210">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sr_RS">
+{{canonical}}
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/site.js" defer></script>
+{{script}}
+</head>
+<body>
+<a class="skip" href="#main">Pređi na sadržaj</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <img src="/assets/icon.svg" alt="" width="28" height="28">
+      <span>{{siteName}}</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Meni</button>
+    <nav id="site-nav" class="site-nav" aria-label="Glavna navigacija">
+      <ul>{{nav}}</ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{{content}}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>{{siteName}}</strong> — {{tagline}}. Sadržaj je edukativan i ne zamenjuje obuku, lekara ni zvanična uputstva nadležnih službi. U stvarnoj opasnosti prvo slušaj uputstva Sektora za vanredne situacije i zovi <strong>112</strong>.</p>
+    <p class="small"><a href="/o-projektu/">O projektu</a> · <a href="/srbija/">Korisni brojevi</a> · Sajt radi i bez interneta nakon prve posete.</p>
+  </div>
+</footer>
+</body>
+</html>

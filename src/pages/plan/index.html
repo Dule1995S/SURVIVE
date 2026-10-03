@@ -1,0 +1,52 @@
+---
+title: Plan i zalihe
+heading: Plan i zalihe: kalkulator i lista za proveru
+summary: Izračunaj koliko vode i hrane treba tvojoj porodici, pa odštampaj ili štikliraj listu: torba za 72 sata, kućne zalihe, dokumenta i porodični plan.
+script: plan.js
+toc: false
+---
+<div class="callout tip">
+  <strong>Kako da koristiš ovu stranicu</strong>
+  <p>1) Izračunaj potrebe. 2) Prođi listu i štikliraj šta već imaš. 3) Dopuni ostalo u sledeće tri kupovine. Štikliranja ostaju sačuvana u tvom pregledaču i ne šalju se nigde.</p>
+</div>
+
+<h2>Kalkulator zaliha</h2>
+<div class="calc wide" style="max-width:none">
+  <form id="calc-form">
+    <label>Broj osoba
+      <input type="number" id="calc-people" min="1" max="20" value="3" inputmode="numeric">
+    </label>
+    <label>Trajanje zaliha
+      <select id="calc-days">
+        <option value="3">72 sata (3 dana)</option>
+        <option value="14" selected>2 nedelje</option>
+        <option value="30">1 mesec</option>
+        <option value="90">3 meseca</option>
+      </select>
+    </label>
+  </form>
+  <div class="calc-out" id="calc-out" aria-live="polite"></div>
+  <p class="small-note">Računica: 3 L vode po osobi dnevno (za piće i kuvanje), oko 2200 kcal dnevno i oko 0,65 kg suve hrane po osobi dnevno, 5 g soli dnevno. Povećaj za decu u rastu, trudnice, bolesne, hladnoću i naporan rad.</p>
+</div>
+
+<h2>Četiri nivoa pripreme</h2>
+<ol>
+  <li><strong>72 sata:</strong> torba za evakuaciju i osnovna kućna zaliha (ispod).</li>
+  <li><strong>2 nedelje:</strong> voda, hrana i lekovi za porodicu, rešo, ogrev, higijena.</li>
+  <li><strong>3 meseca:</strong> zimnica i zalihe osnovnih namirnica, filteri za vodu, rezervni izvor energije, kurs prve pomoći.</li>
+  <li><strong>Dugoročno:</strong> zemlja, seme, bunar, drva, zajednica. Vidi <a href="/scenariji/dugorocno-prezivljavanje/">Svet posle</a>.</li>
+</ol>
+
+<h2>Lista za proveru</h2>
+<div class="list-actions">
+  <button type="button" class="btn" id="print-btn">Odštampaj listu</button>
+  <button type="button" class="btn" id="reset-btn">Poništi sve štikle</button>
+</div>
+<div class="progress" aria-hidden="true"><i id="overall-bar"></i></div>
+<p id="overall-text" class="small-note" aria-live="polite"></p>
+<div id="checklists"></div>
+
+<noscript><p>Za interaktivnu listu potreban je JavaScript. Dole je spisak bez štikliranja: voda, hrana, lampa, radio, powerbank, prva pomoć, lekovi, odeća, dokumenta, gotovina.</p></noscript>
+
+<h2>Sledeći korak</h2>
+<p>Zalihe bez znanja vrede upola. Nastavi na <a href="/vestine/">veštine</a>, a počni od prva dva prioriteta: <a href="/vestine/mentalna-otpornost/">um</a> i <a href="/vestine/skloniste-i-toplota/">toplota</a>.</p>

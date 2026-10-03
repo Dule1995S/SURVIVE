@@ -1,0 +1,20 @@
+{
+  "name": "Opstanak",
+  "tagline": "Vodič za preživljavanje za Srbiju",
+  "description": "Praktičan vodič za preživljavanje na srpskom jeziku: nuklearna opasnost, pandemija, poplave, zemljotres, nestanak struje. Veštine, zalihe i plan za porodicu.",
+  "url": "",
+  "nav": [
+    { "title": "Scenariji", "href": "/scenariji/", "section": "scenariji" },
+    { "title": "Veštine", "href": "/vestine/", "section": "vestine" },
+    { "title": "Plan i zalihe", "href": "/plan/", "section": "plan" },
+    { "title": "Srbija", "href": "/srbija/", "section": "srbija" },
+    { "title": "O projektu", "href": "/o-projektu/", "section": "o-projektu" }
+  ],
+  "sections": {
+    "scenariji": { "title": "Scenariji", "ranked": false },
+    "vestine": { "title": "Veštine", "ranked": true },
+    "plan": { "title": "Plan i zalihe" },
+    "srbija": { "title": "Srbija" },
+    "o-projektu": { "title": "O projektu" }
+  }
+}

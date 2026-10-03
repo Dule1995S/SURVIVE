@@ -1,0 +1,11 @@
+{
+  "name": "opstanak",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Opstanak — vodič za preživljavanje na srpskom jeziku",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs && python3 -m http.server 8080 -d docs"
+  }
+}

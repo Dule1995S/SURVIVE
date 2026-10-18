@@ -5,7 +5,7 @@ storyboard: no
 message: "Samixir aparati za napitke: jedan proizvod, tri ključne prednosti, poruči na samixir.rs"
 destination: reels-tiktok
 aspect: 1080x1920
-language: sr-Cyrl
+language: sr-Latn
 audience: HoReCa (kafići, restorani, hoteli, ketering)
 length: 20s
 angle: product-benefits
@@ -34,7 +34,8 @@ CTA 18–20s. Tekst je preuzet iz korisnikovog paketa promptova.
 ## Customizations
 
 - Brand paleta: #F5F7FA pozadina, #0A2540 navy, #FFC72C žuta, #1A1A1A tekst, pastelni krugovi #DCE9F5 / #E8F2EC
-- Font: Inter (variable, ćirilica), lokalno ugrađen
+- Font: Inter (variable, latinica sa č ć đ š ž), lokalno ugrađen
+- Pismo: srpska latinica (korisnik tražio latinicu; paket je navodio ćirilicu, tekst je transliterisan)
 - Muzika: sintetizovana podloga, 120 BPM, bez vokala (tools/synth.py), sa prelazima na smenama scena
 - Efekti po proizvodu: brojevi posuda, noćni disk, iskrice (SLUSH); prsten na slavini, hlađenje, orbita mešanja (KAM22);
   para, orbita mešanja, prsten na LED indikatoru (HOT); orbita mešanja, hlađenje, prsten na slavini (M10)
@@ -47,7 +48,7 @@ CTA 18–20s. Tekst je preuzet iz korisnikovog paketa promptova.
 ## Notes
 
 - Bez crtica (em-dash) u tekstu po brand pravilu. Crtice iz originalnog teksta su zamenjene tačkom ili zarezom.
-- „Беин-мари“ ispravljeno u „Бен-мари“ (srpska transkripcija za bain-marie).
+- „Bein-mari“ ispravljeno u „Ben-mari“ (srpska transkripcija za bain-marie).
 - Drugi red naslova je navy tekst na žutoj traci. Žut tekst na svetloj pozadini bi bio nečitljiv (ne prolazi WCAG kontrast).
 - Logo je ~20% širine ekrana umesto 5% iz brifa. Sa 5% (54px) bio bi nečitljiv na telefonu.
 - Sve tvrdnje (50% manje struje, magnetna lopatica itd.) su iz korisnikovog teksta, nisu proveravane.

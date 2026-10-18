@@ -58,3 +58,6 @@ CTA 18–20s. Tekst je preuzet iz korisnikovog paketa promptova.
 - PANORAMIC M40 (product `m40`, samo plava verzija): oznaka „40 L“ na posudi, kartice sa korisnikovim fotkama
   (assets/photos/m40-pouring.jpg, m40-yellow.jpg), krugovi boja Inox/Crna/Žuta, završnica „Pogledajte našu ponudu“
   + „Za cene i detalje pišite nam u poruci.“ + dugme „Majstori Zanata & Alata“. Crtice iz teksta zamenjene zarezom/tačkom.
+- HOT NEO 10 (product `neo10`, plava verzija, za Majstori Zanata & Alata): gore levo tekst „Majstori Zanata & Alata“ + „Samixir Hot Neo 10“,
+  bela dugmad sa navy tekstom, proizvod blago lebdi iznad meke senke, providna posuda propušta pozadinu (studio_cutout FROST 0.4, SHADOW 0),
+  kartice: displej i ilustracija zaštite od rada bez vode, oznaka „60–90°C“, kartice napitaka Salep/Čokolada/Supa/Kuvano vino.

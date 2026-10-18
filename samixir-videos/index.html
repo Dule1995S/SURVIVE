@@ -7,7 +7,8 @@
       {"value":"kam22","label":"KAM22"},
       {"value":"hot","label":"HOT SC06"},
       {"value":"m10","label":"PANORAMIC M10"},
-      {"value":"m40","label":"PANORAMIC M40"}
+      {"value":"m40","label":"PANORAMIC M40"},
+      {"value":"neo10","label":"HOT NEO 10"}
     ]},
     {"id":"theme","type":"enum","label":"Pozadina","default":"light","options":[
       {"value":"light","label":"Svetla (brand kit)"},
@@ -260,6 +261,76 @@
         letter-spacing: -0.02em;
         white-space: nowrap;
         box-shadow: 0 10px 24px rgba(0, 10, 40, 0.35);
+      }
+      #floor-shadow {
+        position: absolute;
+        height: 46px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(0, 8, 30, 0.75) 0%, rgba(0, 8, 30, 0) 70%);
+      }
+      .fx-glow {
+        border-radius: 50%;
+      }
+      .fx-chip {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        height: 84px;
+        padding: 0 32px 0 12px;
+        border-radius: 42px;
+        background: #ffffff;
+        color: var(--navy);
+        font-size: 34px;
+        font-weight: 700;
+        white-space: nowrap;
+        box-shadow: 0 12px 28px rgba(0, 10, 40, 0.35);
+      }
+      .fx-chip .ci {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: var(--yellow);
+        color: var(--navy);
+      }
+      .fx-chip .ci svg {
+        width: 34px;
+        height: 34px;
+      }
+      .fx-chip.accent {
+        height: 92px;
+        padding: 0 34px;
+        background: var(--yellow);
+        font-size: 50px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      #brand .brand-title {
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+      #brand .brand-sub {
+        font-size: 26px;
+        font-weight: 500;
+        color: var(--gray);
+      }
+      .theme-studio #brand .brand-title {
+        color: #ffffff;
+      }
+      .theme-studio #brand .brand-sub {
+        color: #d1d5db;
+      }
+      .pill-light .pill {
+        background: #ffffff;
+        color: var(--navy);
+        box-shadow: 0 10px 26px rgba(0, 10, 40, 0.3);
+      }
+      .pill-light .pill svg {
+        color: var(--navy);
       }
       .fx-card {
         border-radius: 22px;
@@ -636,6 +707,10 @@
           palette:
             '<circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>',
           message: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+          thermometer: '<path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/>',
+          soup:
+            '<path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M7 21h10"/><path d="M19.5 12 22 6"/><path d="M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62"/><path d="M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62"/><path d="M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62"/>',
+          wine: '<path d="M8 22h8"/><path d="M7 10h10"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"/>',
           store:
             '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>',
           send: '<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/>',
@@ -845,6 +920,63 @@
               },
             ],
           },
+          neo10: {
+            img: "assets/products/hot-neo-10.png",
+            w: 795,
+            h: 1640,
+            // Majstori Zanata & Alata edition: text header instead of the samixir wordmark, white pills, floating product
+            brand: { title: "Majstori Zanata & Alata", sub: "Samixir Hot Neo 10" },
+            pillLight: true,
+            float: true,
+            scenes: [
+              {
+                h: ["Topli napici.", "Digitalno precizno."],
+                pill: "Digitalni bain-marie dispenzer",
+                cam: [1, 0.5, 0.5],
+                overlay: [{ type: "glow", x: 240, y: 560, w: 600, h: 240, color: "255, 140, 50" }],
+              },
+              {
+                h: ["Digitalni panel.", "Tačna temperatura."],
+                icon: "thermometer",
+                text: "Precizna kontrola 60–90°C za svaki napitak",
+                pill: "Digitalna kontrola",
+                cam: [0.85, 0.95, 0.5],
+                overlay: [
+                  { type: "card", src: "assets/photos/hot-neo-display.jpg", x: 560, y: 150, w: 470, h: 238, rot: 3 },
+                  { type: "chip", x: 600, y: 440, text: "60–90°C", accent: true },
+                ],
+              },
+              {
+                h: ["Pametna zaštita.", "Bez brige."],
+                icon: "shield",
+                text: "Automatsko isključenje kad padne nivo vode",
+                pill: "Siguran rad 24/7",
+                cam: [0.9, 0.5, 0.42],
+                overlay: [{ type: "card", src: "assets/photos/hot-neo-dryrun.jpg", x: 220, y: 452, w: 640, h: 312, rot: -2 }],
+              },
+              {
+                h: ["Salep. Čokolada. Supa.", "Sve u jednom."],
+                icon: "coffee",
+                text: "Idealan za guste i tečne napitke, čak i soseve",
+                pill: "10 L univerzalan",
+                cam: [0.95, 0.5, 0.5],
+                overlay: [
+                  { type: "chip", x: 40, y: 170, text: "Salep", icon: "coffee" },
+                  { type: "chip", x: 760, y: 250, text: "Čokolada", icon: "coffee" },
+                  { type: "chip", x: 40, y: 450, text: "Supa", icon: "soup" },
+                  { type: "chip", x: 712, y: 530, text: "Kuvano vino", icon: "wine" },
+                ],
+              },
+              {
+                h: ["Pogledajte", "našu ponudu."],
+                icon: "message",
+                text: "Za cene i detalje pišite nam u poruci.",
+                pill: "Majstori Zanata & Alata",
+                pillIcon: "store",
+                cam: [0.82, 0.5, 0.5],
+              },
+            ],
+          },
         };
 
         // ---------- layout constants ----------
@@ -880,6 +1012,22 @@
         pbox.style.left = Math.round((STAGE_W - PW) / 2) + "px";
         pbox.style.top = Math.round((STAGE_H - PH) / 2) + "px";
         document.getElementById("product").src = P.img;
+        if (P.brand) {
+          document.getElementById("brand").innerHTML =
+            '<span class="brand-title">' + P.brand.title + '</span><span class="brand-sub">' + P.brand.sub + "</span>";
+        }
+        if (P.pillLight) document.getElementById("root").classList.add("pill-light");
+        if (P.float) {
+          // soft floor shadow under the base, inside the camera so it follows every framing
+          const fs = document.createElement("div");
+          fs.id = "floor-shadow";
+          Object.assign(fs.style, {
+            left: Math.round((STAGE_W - PW * 1.15) / 2) + "px",
+            top: Math.round((STAGE_H + PH) / 2 - 18) + "px",
+            width: Math.round(PW * 1.15) + "px",
+          });
+          document.getElementById("pan").insertBefore(fs, pbox);
+        }
 
         // ---------- scene text DOM ----------
         SCENES.forEach((s, i) => {
@@ -1008,8 +1156,21 @@
           d.overlay.forEach((o) => {
             const n = document.createElement("div");
             n.className = "fx";
-            Object.assign(n.style, { left: o.x + "px", top: o.y + "px", width: o.w + "px" });
-            if (o.type === "card") {
+            Object.assign(n.style, { left: o.x + "px", top: o.y + "px" });
+            if (o.w) n.style.width = o.w + "px";
+            if (o.type === "glow") {
+              n.classList.add("fx-glow");
+              n.style.height = o.h + "px";
+              n.style.background = "radial-gradient(ellipse, rgba(" + o.color + ", 0.7) 0%, rgba(" + o.color + ", 0) 70%)";
+              stage.insertBefore(n, document.getElementById("cam"));
+              list.push({ el: n, kind: "glow" });
+            } else if (o.type === "chip") {
+              n.classList.add("fx-chip");
+              if (o.accent) n.classList.add("accent");
+              n.innerHTML = (o.icon ? '<span class="ci">' + svg(o.icon) + "</span>" : "") + "<span>" + o.text + "</span>";
+              stage.appendChild(n);
+              list.push({ el: n, kind: "chip" });
+            } else if (o.type === "card") {
               n.classList.add("fx-card");
               n.style.height = o.h + "px";
               n.innerHTML = '<img src="' + o.src + '" alt="" />';
@@ -1177,7 +1338,13 @@
               tl.to("#fx-cool", { opacity: 0, duration: 0.45, ease: "power2.in" }, fOut);
             }
             (fxNodes[i] || []).forEach((n, k) => {
-              if (n.kind === "card") {
+              if (n.kind === "glow") {
+                tl.fromTo(n.el, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 1.0, ease: "power2.out" }, s.t0 + 0.4);
+                tl.to(n.el, { opacity: 0, duration: 0.45, ease: "power2.in" }, fOut);
+              } else if (n.kind === "chip") {
+                tl.fromTo(n.el, { y: 30, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, fIn + k * 0.16);
+                tl.to(n.el, { opacity: 0, duration: 0.3, ease: "power2.in" }, fOut);
+              } else if (n.kind === "card") {
                 tl.fromTo(n.el, { x: 140, opacity: 0, rotation: n.rot + 8 }, { x: 0, opacity: 1, rotation: n.rot, duration: 0.7, ease: "power3.out" }, fIn - 0.15);
                 tl.to(n.el, { opacity: 0, x: 40, duration: 0.3, ease: "power2.in" }, fOut);
               } else if (n.kind === "pop") {
@@ -1203,6 +1370,12 @@
               }
             });
           });
+
+          // gentle levitation: product bobs, its floor shadow tightens as it rises
+          if (P.float) {
+            tl.fromTo("#product", { y: 0 }, { y: -16, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: 10 }, 1.2);
+            tl.fromTo("#floor-shadow", { scale: 1, opacity: 0.9 }, { scale: 0.86, opacity: 0.6, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: 10 }, 1.2);
+          }
 
           // CTA: product steps back but stays the hero
           tl.fromTo("#orbit", { opacity: 1 }, { opacity: 0.5, duration: 0.5, immediateRender: false }, 18);

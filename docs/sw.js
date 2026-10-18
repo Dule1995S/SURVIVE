@@ -1,5 +1,5 @@
 // Automatski generisano (build.mjs)
-const CACHE = 'opstanak-3e85ec946a';
+const CACHE = 'opstanak-9c3e88c5d8';
 const FILES = ["assets/icon.svg","assets/plan.js","assets/site.js","assets/style.css","./","manifest.webmanifest","o-projektu/","plan/","scenariji/dugorocno-prezivljavanje/","scenariji/","scenariji/nestanak-struje/","scenariji/nuklearna-katastrofa/","scenariji/pandemija/","scenariji/prirodne-katastrofe/","srbija/","vestine/higijena-i-sanitacija/","vestine/hrana/","vestine/","vestine/komunikacija-i-informisanje/","vestine/mentalna-otpornost/","vestine/navigacija/","vestine/prva-pomoc/","vestine/skloniste-i-toplota/","vestine/vatra/","vestine/voda/"];
 self.addEventListener('install', (e) => {
   e.waitUntil(

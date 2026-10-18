@@ -5,7 +5,19 @@
   "description": "Opstanak — vodič za preživljavanje na srpskom jeziku",
   "type": "module",
   "scripts": {
+    "dev": "npm run assets && next dev",
     "build": "node build.mjs",
-    "serve": "node build.mjs && python3 -m http.server 8080 -d docs"
+    "serve": "node build.mjs && python3 -m http.server 8080 -d docs",
+    "next:build": "npm run assets && next build",
+    "start": "next start",
+    "assets": "node -e \"require('fs').cpSync('src/assets', 'public/assets', { recursive: true })\""
+  },
+  "dependencies": {
+    "next": "^16.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "engines": {
+    "node": ">=20.9"
   }
 }

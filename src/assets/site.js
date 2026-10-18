@@ -12,7 +12,7 @@
   }
 
   // Offline: ceo sajt se kešira posle prve posete.
-  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  if ('serviceWorker' in navigator && location.protocol !== 'file:' && !document.documentElement.hasAttribute('data-no-sw')) {
     navigator.serviceWorker.register(root + 'sw.js').catch(() => {});
   }
 })();

@@ -22,6 +22,22 @@ npm run serve     # build + http://localhost:8080
 Izgrađeni sajt je u `docs/` (komitovan), pa može direktno na GitHub Pages (Settings → Pages → `main` / `docs`).
 Za `sitemap.xml` i `canonical` linkove upiši adresu u `src/site.json` (`"url"`).
 
+### Next.js
+
+Isti sadržaj (`src/pages/`) može da se pokreće i kroz Next.js (App Router, `src/app/`). Potreban je Node 20.9+:
+
+```bash
+npm install
+npm run dev          # Next.js dev server: http://localhost:3000
+npm run next:build   # produkcijski build (sve stranice se prave unapred)
+npm start            # pokreće produkcijski build
+```
+
+- `src/app/[[...slug]]/page.jsx` pravi po jednu stranicu za svaki fajl iz `src/pages/`.
+- Logika za čitanje i obradu sadržaja je u `lib/content.mjs` i dele je Next.js i `build.mjs`.
+- `src/assets/` se pre pokretanja kopira u `public/assets/` (`npm run assets`).
+- Offline keš (service worker) i `docs/` za GitHub Pages i dalje pravi samo `npm run build`.
+
 ## Kako dodati sadržaj
 
 Svaka stranica je jedan HTML fajl u `src/pages/` sa zaglavljem:

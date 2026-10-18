@@ -61,3 +61,5 @@ CTA 18–20s. Tekst je preuzet iz korisnikovog paketa promptova.
 - HOT NEO 10 (product `neo10`, plava verzija, za Majstori Zanata & Alata): gore levo tekst „Majstori Zanata & Alata“ + „Samixir Hot Neo 10“,
   bela dugmad sa navy tekstom, proizvod blago lebdi iznad meke senke, providna posuda propušta pozadinu (studio_cutout FROST 0.4, SHADOW 0),
   kartice: displej i ilustracija zaštite od rada bez vode, oznaka „60–90°C“, kartice napitaka Salep/Čokolada/Supa/Kuvano vino.
+- SLUSH Triple MZA (product `slushmza`, plava verzija): žuti aparat u 1. i 5. sceni, velika fotka sipanja (blagi zum), tri boje jedna pored druge
+  (inox/crna/žuta, isečci sa pragom 252 da ostanu providni poklopci), fotka posuda za kapanje sa žutim okvirom. Slike ulaze dok aparat nestaje.

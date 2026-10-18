@@ -8,7 +8,8 @@
       {"value":"hot","label":"HOT SC06"},
       {"value":"m10","label":"PANORAMIC M10"},
       {"value":"m40","label":"PANORAMIC M40"},
-      {"value":"neo10","label":"HOT NEO 10"}
+      {"value":"neo10","label":"HOT NEO 10"},
+      {"value":"slushmza","label":"SLUSH Triple (MZA)"}
     ]},
     {"id":"theme","type":"enum","label":"Pozadina","default":"light","options":[
       {"value":"light","label":"Svetla (brand kit)"},
@@ -261,6 +262,40 @@
         letter-spacing: -0.02em;
         white-space: nowrap;
         box-shadow: 0 10px 24px rgba(0, 10, 40, 0.35);
+      }
+      .fx-frame {
+        border: 6px solid var(--yellow);
+        border-radius: 28px;
+      }
+      .fx-trio {
+        inset: 0;
+      }
+      .trio-item {
+        position: absolute;
+      }
+      .trio-item img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+      .trio-shadow {
+        position: absolute;
+        left: 6%;
+        width: 88%;
+        height: 36px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(0, 8, 30, 0.7) 0%, rgba(0, 8, 30, 0) 70%);
+      }
+      .trio-label {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: #ffffff;
       }
       #floor-shadow {
         position: absolute;
@@ -920,6 +955,66 @@
               },
             ],
           },
+          slushmza: {
+            img: "assets/products/slush-triple-yellow.png",
+            w: 564,
+            h: 705,
+            brand: { title: "Majstori Zanata & Alata", sub: "Samixir SLUSH Triple" },
+            pillLight: true,
+            float: true,
+            scenes: [
+              { h: ["Tri ukusa.", "Jedan uređaj."], pill: "Profesionalni granita dispenzer", cam: [1, 0.5, 0.5] },
+              {
+                h: ["Nezavisne posude.", "Non-stop osveženje."],
+                icon: "cupSoda",
+                text: "3 × 12 L, svaka posuda radi samostalno",
+                pill: "3 posude",
+                cam: [1, 0.5, 0.5],
+                hideProduct: true,
+                overlay: [{ type: "card", src: "assets/photos/slush-pouring.jpg", x: 70, y: 150, w: 940, h: 475, rot: 0, zoom: true }],
+              },
+              {
+                h: ["Tri boje.", "Vaš stil, vaš brend."],
+                icon: "palette",
+                text: "Prilagodite izgled dispenzera svom lokalu",
+                pill: "Inox, crna, žuta",
+                cam: [1, 0.5, 0.5],
+                hideProduct: true,
+                overlay: [
+                  {
+                    type: "trio",
+                    items: [
+                      { src: "assets/products/studio/slush-triple-inox.png", label: "Inox", x: 20, w: 330 },
+                      { src: "assets/products/studio/slush-triple-black.png", label: "Crna", x: 350, w: 380 },
+                      { src: "assets/products/studio/slush-triple-yellow.png", label: "Žuta", x: 730, w: 330 },
+                    ],
+                    base: 690,
+                    ratio: 705 / 564,
+                  },
+                ],
+              },
+              {
+                h: ["Pažljivo osmišljen.", "Lak za održavanje."],
+                icon: "droplets",
+                text: "Odvodni poklopci se brzo skidaju i peru",
+                pill: "Praktičan dizajn",
+                cam: [1, 0.5, 0.5],
+                hideProduct: true,
+                overlay: [
+                  { type: "card", src: "assets/photos/slush-driptray.jpg", x: 70, y: 150, w: 940, h: 475, rot: 0 },
+                  { type: "frame", x: 120, y: 352, w: 730, h: 220 },
+                ],
+              },
+              {
+                h: ["Pogledajte", "našu ponudu."],
+                icon: "message",
+                text: "Za cene i detalje pišite nam u poruci.",
+                pill: "Majstori Zanata & Alata",
+                pillIcon: "store",
+                cam: [0.82, 0.5, 0.5],
+              },
+            ],
+          },
           neo10: {
             img: "assets/products/hot-neo-10.png",
             w: 795,
@@ -1175,7 +1270,29 @@
               n.style.height = o.h + "px";
               n.innerHTML = '<img src="' + o.src + '" alt="" />';
               stage.appendChild(n);
-              list.push({ el: n, kind: "card", rot: o.rot || 0 });
+              list.push({ el: n, kind: "card", rot: o.rot || 0, zoom: !!o.zoom });
+            } else if (o.type === "frame") {
+              n.classList.add("fx-frame");
+              n.style.height = o.h + "px";
+              stage.appendChild(n);
+              list.push({ el: n, kind: "frame" });
+            } else if (o.type === "trio") {
+              // three colour variants standing side by side, each with its own floor shadow and label
+              n.classList.add("fx-trio");
+              n.style.opacity = 1;
+              stage.appendChild(n);
+              o.items.forEach((it, k) => {
+                const h = Math.round(it.w * o.ratio);
+                const item = document.createElement("div");
+                item.className = "trio-item";
+                Object.assign(item.style, { left: it.x + "px", top: o.base - h + "px", width: it.w + "px", height: h + 70 + "px" });
+                item.innerHTML =
+                  '<i class="trio-shadow" style="top:' + (h - 16) + 'px"></i>' +
+                  '<img src="' + it.src + '" alt="" style="height:' + h + 'px" />' +
+                  '<span class="trio-label">' + it.label + "</span>";
+                n.appendChild(item);
+                list.push({ el: item, kind: "trio", k: k });
+              });
             } else if (o.type === "swatches") {
               n.classList.add("fx-swatches");
               n.style.opacity = 1;
@@ -1324,7 +1441,8 @@
 
             // effects
             const fx = d.fx;
-            const fIn = s.t0 + 0.55,
+            // photo/trio scenes cross-fade with the outgoing product instead of waiting for it
+            const fIn = s.t0 + (d.hideProduct ? 0.05 : 0.55),
               fOut = s.t1 - 0.4;
             if (fx && fx.type === "night") {
               tl.fromTo("#fx-night", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, s.t0 + 0.1);
@@ -1346,7 +1464,18 @@
                 tl.to(n.el, { opacity: 0, duration: 0.3, ease: "power2.in" }, fOut);
               } else if (n.kind === "card") {
                 tl.fromTo(n.el, { x: 140, opacity: 0, rotation: n.rot + 8 }, { x: 0, opacity: 1, rotation: n.rot, duration: 0.7, ease: "power3.out" }, fIn - 0.15);
+                if (n.zoom) {
+                  tl.fromTo(n.el.querySelector("img"), { scale: 1 }, { scale: 1.12, duration: s.t1 - fIn, ease: "sine.inOut" }, fIn - 0.15);
+                }
                 tl.to(n.el, { opacity: 0, x: 40, duration: 0.3, ease: "power2.in" }, fOut);
+              } else if (n.kind === "frame") {
+                tl.fromTo(n.el, { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, fIn + 0.5);
+                tl.fromTo(n.el, { boxShadow: "0 0 0 0 rgba(255, 199, 44, 0.55)" }, { boxShadow: "0 0 0 22px rgba(255, 199, 44, 0)", duration: 0.9, ease: "power2.out", repeat: 2, immediateRender: false }, fIn + 0.9);
+                tl.to(n.el, { opacity: 0, duration: 0.3, ease: "power2.in" }, fOut);
+              } else if (n.kind === "trio") {
+                tl.fromTo(n.el, { y: 70, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, fIn - 0.2 + n.k * 0.15);
+                tl.fromTo(n.el, { y: 0 }, { y: -10, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 2, immediateRender: false }, fIn + 0.5 + n.k * 0.15);
+                tl.to(n.el, { opacity: 0, duration: 0.3, ease: "power2.in" }, fOut);
               } else if (n.kind === "pop") {
                 tl.fromTo(n.el, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, fIn + k * 0.14);
                 tl.to(n.el, { opacity: 0, scale: 0.85, duration: 0.3, ease: "power2.in" }, fOut);
@@ -1369,6 +1498,16 @@
                 );
               }
             });
+          });
+
+          // scenes that show a photo or the colour trio hide the persistent product
+          SCENES.forEach((s, i) => {
+            if (i === 0) return;
+            const was = !!P.scenes[i - 1].hideProduct,
+              now = !!P.scenes[i].hideProduct;
+            if (was !== now) {
+              tl.fromTo("#cam", { opacity: now ? 1 : 0 }, { opacity: now ? 0 : 1, duration: 0.4, ease: "power2.inOut", immediateRender: false }, s.t0 - 0.25);
+            }
           });
 
           // gentle levitation: product bobs, its floor shadow tightens as it rises

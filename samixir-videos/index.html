@@ -131,12 +131,6 @@
         height: 46px;
         width: auto;
       }
-      #brand .url {
-        font-size: 26px;
-        font-weight: 500;
-        color: var(--gray);
-        letter-spacing: 0.01em;
-      }
 
       /* ---------- product stage ---------- */
       #stage {
@@ -377,21 +371,18 @@
       }
 
       /* CTA */
-      .cta-url {
+      .cta-logo {
         position: absolute;
         left: 80px;
-        top: 250px;
-        width: 920px;
-        font-size: 132px;
-        font-weight: 800;
-        letter-spacing: -0.035em;
-        line-height: 1;
-        color: var(--navy);
+        top: 258px;
+        display: block;
+        width: 560px;
+        height: auto;
       }
       .cta-sub {
         position: absolute;
         left: 80px;
-        top: 410px;
+        top: 424px;
         width: 920px;
         display: block;
         font-size: 46px;
@@ -401,7 +392,7 @@
       .cta-rule {
         position: absolute;
         left: 80px;
-        top: 392px;
+        top: 400px;
         width: 220px;
         height: 8px;
         border-radius: 4px;
@@ -455,15 +446,11 @@
         stroke: #ffffff;
         stroke-opacity: 0.22;
       }
-      .theme-studio #brand .url {
-        color: #dce9f5;
-      }
       .theme-studio #product {
         filter: drop-shadow(0 30px 34px rgba(0, 10, 40, 0.5));
       }
       .theme-studio .headline .l1,
       .theme-studio .benefit .text,
-      .theme-studio .cta-url,
       .theme-studio .cta-sub {
         color: #ffffff;
       }
@@ -530,9 +517,7 @@
 
       <!-- brand -->
       <div id="brand">
-        <img src="assets/brand/samixir-wordmark.png" alt="samixir" />
-        <span class="url">samixir.rs</span>
-      </div>
+        <img src="assets/brand/samixir-wordmark.png" alt="samixir" />      </div>
 
       <!-- scenes: text layers only; the product layer above is persistent -->
       <section id="s1" class="scene clip" data-start="0" data-duration="4" data-track-index="1">
@@ -755,9 +740,10 @@
         const vars = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
         const P = PRODUCTS[vars.product] || PRODUCTS.slush;
         const STUDIO = vars.theme === "studio";
+        const LOGO = STUDIO ? "assets/brand/samixir-wordmark-white.png" : "assets/brand/samixir-wordmark.png";
         if (STUDIO) {
           document.getElementById("root").classList.add("theme-studio");
-          document.querySelector("#brand img").src = "assets/brand/samixir-wordmark-white.png";
+          document.querySelector("#brand img").src = LOGO;
           // dark-backdrop cut-outs: floor shadow turned black, clear lids frosted (tools/studio_cutout.py)
           P.img = P.img.replace("assets/products/", "assets/products/studio/");
         }
@@ -778,7 +764,7 @@
           const el = document.querySelector("#" + s.id + " .scene-inner");
           if (d.cta) {
             el.innerHTML =
-              '<div class="cta-url">samixir.rs</div>' +
+              '<img class="cta-logo" src="' + LOGO + '" alt="samixir" />' +
               '<div class="cta-rule"></div>' +
               '<span class="cta-sub">' + d.cta + "</span>" +
               '<div class="pill">' + svg("send") + "<span>Pošalji poruku</span></div>";
@@ -998,7 +984,9 @@
             const root = "#" + s.id + " ";
             const t = s.t0 + (i === 0 ? 0.35 : 0.08);
             if (d.cta) {
-              tl.fromTo(root + ".cta-url", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, t);
+              tl.fromTo(root + ".cta-logo", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, t);
+              // the big CTA logo takes over from the small header logo
+              tl.fromTo("#brand", { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "power2.in", immediateRender: false }, s.t0 - 0.1);
               tl.fromTo(root + ".cta-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, t + 0.2);
               tl.fromTo(root + ".cta-sub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, t + 0.3);
               tl.fromTo(root + ".pill", { y: 40, opacity: 0, scale: 0.94 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, t + 0.45);

@@ -2,7 +2,7 @@
 workflow: general-video
 flow: automation
 storyboard: no
-message: "Samixir aparati za napitke: jedan proizvod, tri ključne prednosti, poruči na samixir.rs"
+message: "Samixir aparati za napitke: jedan proizvod, tri ključne prednosti, pošalji poruku"
 destination: reels-tiktok
 aspect: 1080x1920
 language: sr-Latn
@@ -52,3 +52,5 @@ CTA 18–20s. Tekst je preuzet iz korisnikovog paketa promptova.
 - Drugi red naslova je navy tekst na žutoj traci. Žut tekst na svetloj pozadini bi bio nečitljiv (ne prolazi WCAG kontrast).
 - Logo je ~20% širine ekrana umesto 5% iz brifa. Sa 5% (54px) bio bi nečitljiv na telefonu.
 - Sve tvrdnje (50% manje struje, magnetna lopatica itd.) su iz korisnikovog teksta, nisu proveravane.
+
+- Bez adrese samixir.rs (korisnik: sajt ne postoji). Gore levo je samo logo; CTA scena prikazuje veliki samixir logo umesto adrese.

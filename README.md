@@ -37,6 +37,10 @@ npm start            # pokreće produkcijski build
 - Logika za čitanje i obradu sadržaja je u `lib/content.mjs` i dele je Next.js i `build.mjs`.
 - `src/assets/` se pre pokretanja kopira u `public/assets/` (`npm run assets`).
 - Offline keš (service worker) i `docs/` za GitHub Pages i dalje pravi samo `npm run build`.
+- **Tailwind CSS v4** (`src/app/globals.css`): boje sajta su dostupne kao klase (`bg-surface`, `text-muted`,
+  `border-line`, `bg-accent`, `text-accent-ink`…) i prate svetlu/tamnu temu. Preflight reset je namerno isključen
+  da ne pokvari HTML sadržaj; `style.css` je u sloju `components`, pa Tailwind klase uvek imaju prednost.
+  Zaglavlje i podnožje su u `src/components/` i napisani su Tailwind klasama.
 
 ## Kako dodati sadržaj
 

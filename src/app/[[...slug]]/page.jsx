@@ -1,4 +1,6 @@
 import Script from 'next/script';
+import SiteHeader from '../../components/SiteHeader';
+import SiteFooter from '../../components/SiteFooter';
 import { site, pages, renderContent, pageTitle, pageDescription } from '../../../lib/content.mjs';
 
 // Sve stranice dolaze iz src/pages/ i prave se unapred; nepoznate putanje daju 404.
@@ -22,44 +24,18 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const page = await findPage(params);
-  const sectionKey = page.segs[0] || '';
 
   return (
     <>
-      <a className="skip" href="#main">Pređi na sadržaj</a>
-      <header className="site-header">
-        <div className="wrap bar">
-          <a className="brand" href="/">
-            <img src="/assets/icon.svg" alt="" width="28" height="28" />
-            <span>{site.name}</span>
-          </a>
-          <button className="nav-toggle" aria-expanded="false" aria-controls="site-nav">Meni</button>
-          <nav id="site-nav" className="site-nav" aria-label="Glavna navigacija">
-            <ul>
-              {site.nav.map((n) => (
-                <li key={n.href}>
-                  <a href={n.href} aria-current={sectionKey && n.section === sectionKey ? 'true' : undefined}>
-                    {n.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <a
+        href="#main"
+        className="absolute top-0 -left-[999px] z-[100] bg-accent px-4 py-2 text-accent-ink focus:left-0 print:hidden"
+      >
+        Pređi na sadržaj
+      </a>
+      <SiteHeader name={site.name} nav={site.nav} sectionKey={page.segs[0] || ''} />
       <main id="main" dangerouslySetInnerHTML={{ __html: renderContent(page) }} />
-      <footer className="site-footer">
-        <div className="wrap">
-          <p>
-            <strong>{site.name}</strong> — {site.tagline}. Sadržaj je edukativan i ne zamenjuje obuku, lekara ni
-            zvanična uputstva nadležnih službi. U stvarnoj opasnosti prvo slušaj uputstva Sektora za vanredne situacije
-            i zovi <strong>112</strong>.
-          </p>
-          <p className="small">
-            <a href="/o-projektu/">O projektu</a> · <a href="/srbija/">Korisni brojevi</a>
-          </p>
-        </div>
-      </footer>
+      <SiteFooter name={site.name} tagline={site.tagline} />
       {page.meta.script && <Script src={`/assets/${page.meta.script}`} strategy="afterInteractive" />}
     </>
   );

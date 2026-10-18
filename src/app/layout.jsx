@@ -1,4 +1,4 @@
-import Script from 'next/script';
+import './globals.css';
 import { site } from '../../lib/content.mjs';
 
 export const metadata = {
@@ -12,15 +12,8 @@ export const viewport = { themeColor: '#0f1210' };
 
 export default function RootLayout({ children }) {
   return (
-    // data-no-sw: offline keš (sw.js) pravi samo build.mjs za docs/
-    <html lang="sr" data-no-sw="">
-      <head>
-        <link rel="stylesheet" href="/assets/style.css" />
-      </head>
-      <body>
-        {children}
-        <Script src="/assets/site.js" strategy="afterInteractive" />
-      </body>
+    <html lang="sr">
+      <body>{children}</body>
     </html>
   );
 }

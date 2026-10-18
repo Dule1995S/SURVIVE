@@ -1,0 +1,27 @@
+/* Tailwind bez preflight reseta: HTML sadržaj iz src/pages oslanja se na podrazumevane stilove pregledača
+   (liste, naslovi, margine), pa preflight ne uključujemo. Postojeći style.css je u sloju components,
+   tako da Tailwind klase (sloj utilities) uvek imaju prednost. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '../assets/style.css' layer(components);
+
+/* Boje sajta (definisane u style.css, sa svetlom i tamnom temom) kao Tailwind tokeni: bg-surface, text-muted, border-line… */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-text: var(--accent-text);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-ok: var(--ok);
+  --color-ok-bg: var(--ok-bg);
+  --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+  --radius-card: var(--radius);
+}

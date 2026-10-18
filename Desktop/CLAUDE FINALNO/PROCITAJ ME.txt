@@ -12,3 +12,12 @@ prepisati ga na kraj postojeceg "CLAUDE FINALNO\PROCITAJ ME.txt".)
   50 zadataka u 5 celina (ORGANIZAM, CELIJA, RAZLIKE, JEDNOCELIJSKI, KOLONIJE),
   9 SVG crteza, 5 okvira ZAPAMTI, 2 okvira KOD KUCE, pecat MISIJA 01 · ZAVRSENA.
   Izvor i katalog: IGRA LAB CLAUDE\85_BIOLOGIJA_6_OBLAST_1\FINALNO\
+
+[2026-10-18] FIZIKA 6 · UVOD U FIZIKU I KRETANJE (lekcije 1.1 do 1.3, 2.1 do 2.3) · v01
+  IGRALAB_FIZIKA-6_UVOD-I-KRETANJE_KOMPLET_COLOR_v01.pdf      20 str. A4, boja
+  IGRALAB_FIZIKA-6_UVOD-I-KRETANJE_KOMPLET_CRNO-BELO_v01.pdf  20 str. A4, crno belo
+  IGRALAB_FIZIKA-6_UVOD-I-KRETANJE_RESENJA_v01.pdf            5 str. A4, resenja i smernice
+  50 zadataka u 6 celina (FIZIKA, METOD, VELICINE, KRETANJE, PUTANJA, BRZINA),
+  6 SVG crteza, 6 okvira ZAPAMTI, OGLED KOD KUCE, pecat MISIJA 01 · ZAVRSENA;
+  svi racuni provereni u kodu.
+  Izvor i katalog: IGRA LAB CLAUDE\86_FIZIKA_6_UVOD_I_KRETANJE\FINALNO\

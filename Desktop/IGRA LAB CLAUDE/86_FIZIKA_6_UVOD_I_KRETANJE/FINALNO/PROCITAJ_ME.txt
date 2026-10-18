@@ -1,0 +1,84 @@
+IGRA LAB · ISTRAZIVAC 12+ · FIZIKA 6 · UVOD U FIZIKU I KRETANJE
+Lekcije 1.1 do 1.3 i 2.1 do 2.3 (udzbenik str. 10 do 40)
+Verzija v01 · oktobar 2026
+====================================================================
+
+SADRZAJ FOLDERA
+--------------------------------------------------------------------
+IGRALAB_FIZIKA-6_UVOD-I-KRETANJE_KOMPLET_COLOR_v01.pdf      radna sveska u boji, 20 strana A4
+IGRALAB_FIZIKA-6_UVOD-I-KRETANJE_KOMPLET_CRNO-BELO_v01.pdf  ista sveska za crno belu stampu
+IGRALAB_FIZIKA-6_UVOD-I-KRETANJE_RESENJA_v01.pdf            resenja i smernice, 5 strana A4
+katalog/            pregledne slike + izvestaji provere (provera_izvestaj.txt) i
+                    renderovanja (render_izvestaj.txt, slobodan prostor po strani)
+izvorni_kod.zip     build.py, style.css, render.py, crtezi.py, provera.py, fontovi
+
+RASPORED SVESKE (20 strana, deljivo sa 4)
+--------------------------------------------------------------------
+ 1      naslovna
+ 2      Pre nego sto krenes (istrazivacko pitanje o munji i gromu + linije, mapa misije)
+ 3-5    Celina 1 FIZIKA      lekcija 1.1  zadaci 1 do 9    + ZAPAMTI
+ 6-8    Celina 2 METOD       lekcija 1.2  zadaci 10 do 17  + OGLED KOD KUCE + ZAPAMTI
+ 9-11   Celina 3 VELICINE    lekcija 1.3  zadaci 18 do 26  + ZAPAMTI
+12-13   Celina 4 KRETANJE    lekcija 2.1  zadaci 27 do 33  + ZAPAMTI
+14-16   Celina 5 PUTANJA     lekcija 2.2  zadaci 34 do 42  + ZAPAMTI
+17-19   Celina 6 BRZINA      lekcija 2.3  zadaci 43 do 50  + ZAPAMTI
+20      zavrsna: pecat MISIJA 01 · ZAVRSENA, povratak na istrazivacko pitanje, "Sta sada znam"
+
+Svih 50 zadataka je tim redom i tim tekstom. Dodati su samo kratki kurzivni redovi
+uputstva ("Slovo upisi u polje...", "Broj upisi u polje.") i podnaslovi nad linijama
+(npr. "Cula" i "Zasto prvo vidis munju" u zadatku 11). Gde je ostalo mesta, dodate su
+linije. Racunski zadaci (21, 25, 37, 43, 45, 47, 48, 49, 50) imaju polje u tri reda:
+PODACI, RACUN, ODGOVOR. U tabeli 19 popunjena je po jedna celija u svakom redu.
+
+CRTEZI (SVG u kodu, bez generisanih slika)
+--------------------------------------------------------------------
+1 plan naselja 6 x 4 polja, kuca A dole levo, skola B gore desno, razmera 50 m .... zad. 37
+2 tocak na startu: osovina (centar) i ventil (na gumi), prazna traka sa putem ..... zad. 36
+3 dijagram kretanja kolica 0 do 10 m, tacke na 0, 2, 4, 6, 8 m, t0 = 0 s do t4 = 4 s  zad. 45
+4 prazna brojna prava 0 do 10 m .................................................... zad. 46
+5 dva sata: 10 h 50 min i 11 h 05 min ............................................... zad. 25
+6 loptica sa licem "cica Glisa" i pod ............................................... zad. 31
++ ikonica za OGLED KOD KUCE (list, olovka, zguzvan list) i crtez na naslovnoj.
+Brojevi na crtezima (polja plana, tacke, kazaljke) uzimaju se iz istih konstanti
+koje koristi provera racuna, pa crtez i resenje ne mogu da se raziđu.
+
+ZAPIS U FIZICI (kako je slozeno)
+--------------------------------------------------------------------
+- Oznaka velicine kurzivom (s, t, v, a, S, V, m, Δt), jedinica uspravno.
+- Izmedju broja i jedinice nedeljiv razmak (5 cm), hiljade sa razmakom (300 000 km/s).
+- m/s, km/h, cm/s, m/min slozeni kao pravi razlomak.
+- Decimalni zarez (0,5 m). Znak minus postoji samo u formuli Δt = t2 − t1 (zadatak 25 i resenje).
+- U zadatku 20 opcija "a=5cm" je namerno napisana pogresno (to je poenta zadatka).
+
+PROVERE (detalji u katalog/provera_izvestaj.txt, 63 stavke)
+--------------------------------------------------------------------
+[ok] 20 strana sveske (trazi se 19 do 23), 5 strana resenja, A4 595,3 x 841,9 pt
+[ok] fontovi ugradjeni: Lora Bold (staticka) i Fira Sans, CID TrueType, nema Type3
+[ok] latinica samo iz liste oznaka (s t v a S V m l, m cm dm mm km s min h ms kg) i IGRA LAB;
+     nema mesanja cirilice i latinice u reci
+[ok] oznake velicina su kurzivom (provera u HTML-u), jedinice uspravno
+[ok] nema crtica – — ― ni crtica u recima; minus samo u formulama
+[ok] decimalni zarez, nedeljiv razmak broj-jedinica, razlomci za brzinu
+[ok] nema zabranjenih reci (ukljucujuci "sigurno"), nema obracanja u muskom rodu
+[ok] svaki racun iz resenja ponovo izracunat u Pythonu (20 provera); build.py staje
+     ako se iznos razlikuje (isprobano: namerno pogresno 96 cm2 i 25 m/s zaustavljaju build)
+[ok] slobodan prostor do futera nigde negativan; svaka strana pregledana uvecano
+
+NAPOMENA ZA ODRASLE (na poslednjoj strani resenja)
+- materijal nije zvanicni udzbenik;
+- sonda Parker: u udzbeniku ≈ 2 430 km/h je verovatno stamparska greska, stvarno oko 690 000 km/h;
+- Jusejn Bolt: 37,58 km/h je prosecna brzina na 100 m (100 m za 9,58 s), najveca trenutna oko 44 km/h.
+U zadacima se ne koristi podatak o sondi Parker ni rec "sigurno"; zadatak 14 ne tvrdi da
+brzina padanja zavisi od mase.
+
+GRADNJA IZ IZVORNOG KODA
+--------------------------------------------------------------------
+  pip install playwright pypdf     (i: python3 -m playwright install chromium)
+  python3 build.py c | b | r       boja, crno belo, resenja (bez argumenta sve tri)
+  python3 render.py fajl.html      izvestaj o slobodnom prostoru po strani
+  python3 provera.py               sve provere
+Chromium zaokruzuje list na ceo piksel, pa render.py skalira strane na tacnu A4 meru.
+
+NAPOMENA O SABLONU
+Kod Istorije 6 (izvorni_kod_istorija_6.zip) nije bio dostupan u cloud okruzenju; osnova
+je kod Biologije 6 (85_BIOLOGIJA_6_OBLAST_1), koji je napravljen po istom opisu sablona.

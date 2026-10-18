@@ -1,0 +1,96 @@
+IGRA LAB · ISTRAZIVAC 12+ · BIOLOGIJA 6 · OBLAST 1
+"Jedinstvo gradje i funkcije kao osnova zivota"
+Verzija v01 · oktobar 2026
+====================================================================
+
+SADRZAJ FOLDERA
+--------------------------------------------------------------------
+IGRALAB_BIOLOGIJA-6_OBLAST-1_KOMPLET_COLOR_v01.pdf      radna sveska u boji, 20 strana A4
+IGRALAB_BIOLOGIJA-6_OBLAST-1_KOMPLET_CRNO-BELO_v01.pdf  ista sveska za crno belu stampu, 20 strana
+IGRALAB_BIOLOGIJA-6_OBLAST-1_RESENJA_v01.pdf            resenja i smernice, 5 strana A4
+katalog/                                                pregledne slike (naslovna, sve strane,
+                                                        primeri) + izvestaji provere i renderovanja
+izvorni_kod.zip                                         build.py, style.css, render.py, crtezi.py,
+                                                        provera.py, fontovi
+
+RASPORED SVESKE (20 strana, deljivo sa 4 za stampu knjizice)
+--------------------------------------------------------------------
+ 1      naslovna
+ 2      Pre nego sto krenes (istrazivacko pitanje + linije, mapa misije)
+ 3-5    Celina 1 ORGANIZAM       zadaci 1 do 10   + ZAPAMTI
+ 6-8    Celina 2 CELIJA          zadaci 11 do 20  + ZAPAMTI
+ 9-11   Celina 3 RAZLIKE         zadaci 21 do 30  + KOD KUCE (model od plastelina) + ZAPAMTI
+12-15   Celina 4 JEDNOCELIJSKI   zadaci 31 do 42  + KOD KUCE (voda iz bare) + ZAPAMTI
+16-18   Celina 5 KOLONIJE        zadaci 43 do 50  + ZAPAMTI
+19      zavrsna: pecat MISIJA 01 · ZAVRSENA, povratak na istrazivacko pitanje, "Sta sada znam"
+20      zadnja korica
+
+Svih 50 zadataka je u svesci tim redom i tim tekstom. Uz neke je dodat samo kratak
+kurzivni red uputstva (npr. "Slovo upisi u polje pored pojma.") i oznake na linijama
+(npr. "Organ:", "Zastita"). Gde je ostalo mesta, dodate su linije za pisanje.
+
+CRTEZI (svi nacrtani kodom kao SVG, bez generisanih slika)
+--------------------------------------------------------------------
+ 1 stepenice nivoa organizacije, 5 praznih polja sa strelicama ........ zadatak 3
+ 2 zivotinjska celija, brojevi 1 do 4 + 4 polja ........................ zadatak 14
+ 3 biljna i zivotinjska celija jedna pored druge, bez natpisa .......... zadatak 21
+ 4 ameba, brojevi 1 do 4 + 4 polja ...................................... zadatak 32
+ 5 cetiri faze deobe amebe, ispremestane, A B V G + 4 polja ........... zadatak 34
+   raspored na crtezu: A = jedro se deli, B = dve nove amebe,
+   V = ameba sa jednim jedrom, G = suzavanje; resenje V 1, A 2, G 3, B 4
+ 6 cetiri oblika bakterija + 4 polja za slovo ......................... zadatak 40
+ 7 volvoks sa 3 cerke kolonije ......................................... zadatak 44
+ 8 sundjer u preseku, brojevi 1 do 4 + 4 polja ......................... zadatak 46
+ 9 pecurka sa micelijumom, uvecana hifa, dve prazne linije ............. zadatak 47
+Brojevi u krugu su na kraju linija pokazivaca. Boja celine je akcenat; u crno beloj
+verziji sve boje celina su #222, tonovi se racunaju iz nje, pa crtezi rade i bez boje.
+
+PROVERE (detaljno u katalog/provera_izvestaj.txt i katalog/render_izvestaj.txt)
+--------------------------------------------------------------------
+[ok] 20 strana sveske (trazi se 19 do 23), 5 strana resenja
+[ok] A4 595,3 x 841,9 pt na svakoj strani
+[ok] fontovi ugradjeni: Lora Bold (staticka instanca) i Fira Sans 400/400i/500/600/700,
+     svi CID TrueType, nema Type3
+[ok] nema crtica − – — ―; crtica samo u "ugljen-dioksid" (u PDF tekstu na cirilici)
+[ok] samo cirilica osim IGRA LAB, bez hemijskih formula
+[ok] nema zabranjenih reci (savrsen, paznj, ljubav, transform, bezbedn, bez kompromisa, sigur)
+[ok] nema obracanja u muskom rodu
+[ok] zadaci 1 do 50 redom; svaki broj na crtezu ima svoje polje i obrnuto
+[ok] slobodan prostor do futera nigde negativan; svaka strana pregledana uvecano
+     (render.py prvo dopuni linije od 8,5 mm, a ostatak manji od jedne linije
+     rasporedi u jednake razmake izmedju blokova)
+[ok] zona 10 mm od ivice cista, nijedan element ne izlazi iz svog bloka
+
+ZNAK PLUS I MINUS U ZADATKU 21
+Znak "minus" je zabranjen kao karakter, pa su + i − u uputstvu zadatka 21 i u tabeli
+resenja nacrtani kao mali graficki znak (CSS), a ne kao slovni znak.
+
+ISPRAVKE IZ SPECIFIKACIJE (ugradjene, ne vracati)
+--------------------------------------------------------------------
+- "vibrioni" je strucni naziv; u resenjima navedena oba ("vibrili" iz nekih udzbenika).
+- modrozelene BAKTERIJE, ne "alge".
+- bakterije razlazu organske materije u neorganske.
+- portugalska krstarica, Levenhuk i podatak o 1 do 2 kg bakterija nisu u svesci.
+
+GRADNJA IZ IZVORNOG KODA
+--------------------------------------------------------------------
+  pip install playwright pypdf     (i: python3 -m playwright install chromium)
+  python3 build.py c      sveska u boji
+  python3 build.py b      crno belo
+  python3 build.py r      resenja
+  python3 build.py        sve tri
+  python3 render.py fajl.html      samo izvestaj o slobodnom prostoru po strani
+  python3 provera.py      sve provere iz tacke 4
+PDF ide u ../FINALNO/. render.py ispisuje slobodan prostor do futera po strani
+(negativan broj = prelivanje). Chromium zaokruzuje list na ceo piksel, pa render.py
+na kraju skalira strane na tacnu A4 meru (razlika 0,05 %).
+
+NAPOMENA O SABLONU
+--------------------------------------------------------------------
+Sveska je pravljena u cloud okruzenju u kome izvorni kod Istorije 6
+(64_ISTORIJA_6_SREDNJI_VEK\FINALNO\izvorni_kod_istorija_6.zip) nije bio dostupan.
+Sistem je zato napravljen iznova prema opisu iz zadatka: isti tok HTML/CSS -> PDF
+preko Chromium-a (Playwright), iste komande c|b|r, isti render.py izvestaj, Lora Bold
++ Fira Sans, zaglavlje sa pecatom i Liskom, jezicci celina u zadatim bojama, futer
+sa brojem strane u krugu, tekst 10,6 pt, linije 8,5 mm. Pre stampe uporedite sa
+Istorijom 6 (velicine u zaglavlju, oblik jezicaka, crtez Liska) i javite razlike.

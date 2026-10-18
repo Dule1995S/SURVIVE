@@ -1,0 +1,5 @@
+Fira Sans
+Copyright 2012-2018 The Mozilla Foundation, Telefonica S.A., Carrois Corporate GbR and bBox Type GmbH.
+Licenca: SIL Open Font License, verzija 1.1 (https://openfontlicense.org).
+Izvor: Google Fonts (https://fonts.google.com/specimen/Fira+Sans), staticke instance 400, 400 italic, 500, 600, 700.
+Font se sme slobodno koristiti, ugradjivati u PDF i deliti uz dokument; ne sme se prodavati sam za sebe.

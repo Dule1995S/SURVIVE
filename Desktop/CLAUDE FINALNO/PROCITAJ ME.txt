@@ -1,0 +1,14 @@
+CLAUDE FINALNO · INDEKS
+====================================================================
+(Dopuna indeksa. Ovaj fajl u repozitorijumu sadrzi samo novi unos;
+prepisati ga na kraj postojeceg "CLAUDE FINALNO\PROCITAJ ME.txt".)
+
+11 ISTRAZIVAC 12+
+--------------------------------------------------------------------
+[2026-10-18] BIOLOGIJA 6 · OBLAST 1 · Jedinstvo gradje i funkcije kao osnova zivota · v01
+  IGRALAB_BIOLOGIJA-6_OBLAST-1_KOMPLET_COLOR_v01.pdf       20 str. A4, boja
+  IGRALAB_BIOLOGIJA-6_OBLAST-1_KOMPLET_CRNO-BELO_v01.pdf   20 str. A4, crno belo
+  IGRALAB_BIOLOGIJA-6_OBLAST-1_RESENJA_v01.pdf             5 str. A4, resenja i smernice
+  50 zadataka u 5 celina (ORGANIZAM, CELIJA, RAZLIKE, JEDNOCELIJSKI, KOLONIJE),
+  9 SVG crteza, 5 okvira ZAPAMTI, 2 okvira KOD KUCE, pecat MISIJA 01 · ZAVRSENA.
+  Izvor i katalog: IGRA LAB CLAUDE\85_BIOLOGIJA_6_OBLAST_1\FINALNO\

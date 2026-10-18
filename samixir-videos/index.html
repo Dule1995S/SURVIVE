@@ -6,7 +6,8 @@
       {"value":"slush","label":"SLUSH Triple"},
       {"value":"kam22","label":"KAM22"},
       {"value":"hot","label":"HOT SC06"},
-      {"value":"m10","label":"PANORAMIC M10"}
+      {"value":"m10","label":"PANORAMIC M10"},
+      {"value":"m40","label":"PANORAMIC M40"}
     ]},
     {"id":"theme","type":"enum","label":"Pozadina","default":"light","options":[
       {"value":"light","label":"Svetla (brand kit)"},
@@ -240,6 +241,64 @@
       .fx-pulse {
         border-radius: 50%;
         border: 5px solid var(--yellow);
+      }
+      .fx-tag {
+        width: 0;
+        height: 0;
+      }
+      .fx-tag .tag-label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(-50%, -50%);
+        padding: 6px 22px 10px;
+        border-radius: 20px;
+        background: var(--yellow);
+        color: var(--navy);
+        font-size: 50px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+        box-shadow: 0 10px 24px rgba(0, 10, 40, 0.35);
+      }
+      .fx-card {
+        border-radius: 22px;
+        overflow: hidden;
+        border: 6px solid #ffffff;
+        box-shadow: 0 24px 50px rgba(0, 10, 40, 0.45);
+        background: #ffffff;
+      }
+      .fx-card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .fx-swatches {
+        display: flex;
+        justify-content: space-around;
+      }
+      .fx-swatches .swatch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .fx-swatches .swatch i {
+        display: block;
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        border: 5px solid #ffffff;
+        box-shadow: 0 10px 22px rgba(0, 10, 40, 0.35);
+      }
+      .fx-swatches .swatch span {
+        font-size: 30px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .theme-studio .fx-swatches .swatch span {
+        color: #ffffff;
       }
       .fx-spin .orbit-flat {
         width: 100%;
@@ -573,6 +632,12 @@
             '<path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
           sparkles:
             '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
+          cylinder: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/>',
+          palette:
+            '<circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>',
+          message: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+          store:
+            '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>',
           send: '<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/>',
         };
         const svg = (name, extra) =>
@@ -722,6 +787,64 @@
               { cta: "Pogledaj. Poruči.", cam: [0.82, 0.5, 0.5] },
             ],
           },
+          m40: {
+            img: "assets/products/panoramic-m40.png",
+            w: 971,
+            h: 1914,
+            scenes: [
+              {
+                h: ["40 litara.", "Za ozbiljan promet."],
+                pill: "Panoramski dispenzer velikog kapaciteta",
+                cam: [1, 0.5, 0.5],
+              },
+              {
+                h: ["Jedna posuda.", "Ceo dan rada."],
+                icon: "cylinder",
+                text: "40 L, dovoljno za špic bez dopunjavanja",
+                pill: "Veliki kapacitet",
+                cam: [1.45, 0.5, 0.27],
+                fx: { type: "tag", at: [0.5, 0.33], label: "40 L" },
+              },
+              {
+                h: ["Sporo mešanje.", "I sa komadićima."],
+                icon: "citrus",
+                text: "Prirodni sokovi, ajran, hladna kafa, mleko",
+                pill: "Univerzalan za sve napitke",
+                cam: [1.3, 0.5, 0.3],
+                fx: { type: "spin", at: [0.5, 0.3], size: 0.95, slow: true },
+                overlay: [{ type: "card", src: "assets/photos/m40-pouring.jpg", x: 600, y: 468, w: 430, h: 217, rot: 4 }],
+              },
+              {
+                h: ["Tri boje.", "Vaš stil, vaš brend."],
+                icon: "palette",
+                text: "Prilagodite izgled dispenzera svom lokalu",
+                pill: "Inox, crna, žuta",
+                cam: [0.85, 0.95, 0.5],
+                overlay: [
+                  { type: "card", src: "assets/photos/m40-yellow.jpg", x: 590, y: 104, w: 440, h: 262, rot: 3 },
+                  {
+                    type: "swatches",
+                    x: 590,
+                    y: 424,
+                    w: 440,
+                    items: [
+                      ["Inox", "linear-gradient(135deg, #f4f6f8 0%, #b9c0c8 45%, #eef1f4 70%, #9aa3ad 100%)"],
+                      ["Crna", "#141414"],
+                      ["Žuta", "#f5d313"],
+                    ],
+                  },
+                ],
+              },
+              {
+                h: ["Pogledajte", "našu ponudu."],
+                icon: "message",
+                text: "Za cene i detalje pišite nam u poruci.",
+                pill: "Majstori Zanata & Alata",
+                pillIcon: "store",
+                cam: [0.82, 0.5, 0.5],
+              },
+            ],
+          },
         };
 
         // ---------- layout constants ----------
@@ -778,7 +901,7 @@
               '<div class="benefit"><div class="icon">' + svg(d.icon) + "</div>" +
               '<span class="text">' + d.text + "</span></div>";
           }
-          html += '<div class="pill"><span>' + d.pill + "</span></div>";
+          html += '<div class="pill">' + (d.pillIcon ? svg(d.pillIcon) : "") + "<span>" + d.pill + "</span></div>";
           el.innerHTML = html;
         });
 
@@ -869,7 +992,39 @@
               n.classList.add("fx-steam");
               list.push({ el: n, kind: "steam", k: k });
             });
+          } else if (fx.type === "tag") {
+            // zero-size anchor at the point; the label centers itself on it, the anchor carries the pop
+            const n = addFx(i, '<span class="tag-label">' + fx.label + "</span>", at(fx.at[0], fx.at[1]));
+            n.classList.add("fx-tag");
+            list.push({ el: n, kind: "pop" });
           }
+        });
+
+        // ---------- stage overlays (photo cards, colour swatches), not affected by the camera ----------
+        const stage = document.getElementById("stage");
+        P.scenes.forEach((d, i) => {
+          if (!d.overlay) return;
+          const list = fxNodes[i] || (fxNodes[i] = []);
+          d.overlay.forEach((o) => {
+            const n = document.createElement("div");
+            n.className = "fx";
+            Object.assign(n.style, { left: o.x + "px", top: o.y + "px", width: o.w + "px" });
+            if (o.type === "card") {
+              n.classList.add("fx-card");
+              n.style.height = o.h + "px";
+              n.innerHTML = '<img src="' + o.src + '" alt="" />';
+              stage.appendChild(n);
+              list.push({ el: n, kind: "card", rot: o.rot || 0 });
+            } else if (o.type === "swatches") {
+              n.classList.add("fx-swatches");
+              n.style.opacity = 1;
+              n.innerHTML = o.items
+                .map((it) => '<div class="swatch"><i style="background:' + it[1] + '"></i><span>' + it[0] + "</span></div>")
+                .join("");
+              stage.appendChild(n);
+              n.querySelectorAll(".swatch").forEach((sw) => list.push({ el: sw, kind: "pop" }));
+            }
+          });
         });
 
         // ---------- stage effects (night disc, cooling glow) ----------
@@ -1000,30 +1155,32 @@
                 tl.fromTo(root + ".benefit .text", { x: -36, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: "power2.out" }, t + 0.6);
               }
               tl.fromTo(root + ".pill", { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, t + (d.icon ? 0.75 : 0.55));
-              // exit (no exit on the last text scene before CTA is needed differently: all exit the same way)
-              tl.fromTo(root + ".scene-inner", { opacity: 1, y: 0 }, { opacity: 0, y: -26, duration: 0.35, ease: "power2.in", immediateRender: false }, s.t1 - 0.35);
+              // exit; the final scene holds to the end
+              if (i < SCENES.length - 1) {
+                tl.fromTo(root + ".scene-inner", { opacity: 1, y: 0 }, { opacity: 0, y: -26, duration: 0.35, ease: "power2.in", immediateRender: false }, s.t1 - 0.35);
+              }
             }
 
             // effects
             const fx = d.fx;
-            if (!fx) return;
             const fIn = s.t0 + 0.55,
               fOut = s.t1 - 0.4;
-            if (fx.type === "night") {
+            if (fx && fx.type === "night") {
               tl.fromTo("#fx-night", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, s.t0 + 0.1);
               tl.fromTo("#fx-night .star", { opacity: 0.25 }, { opacity: 1, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 7, stagger: { each: 0.05 }, immediateRender: false }, s.t0 + 0.5);
               tl.to("#fx-night", { opacity: 0, duration: 0.45, ease: "power2.in" }, fOut);
-              return;
             }
-            if (fx.type === "cool") {
+            if (fx && fx.type === "cool") {
               tl.fromTo("#fx-cool", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, s.t0 + 0.3);
               tl.fromTo("#fx-cool .glow", { scale: 0.7 }, { scale: 1.1, duration: s.t1 - s.t0, ease: "sine.inOut" }, s.t0);
               tl.fromTo("#fx-cool .flake", { y: -30, rotation: 0 }, { y: 80, rotation: 120, duration: s.t1 - s.t0, ease: "none", stagger: 0.08 }, s.t0);
               tl.to("#fx-cool", { opacity: 0, duration: 0.45, ease: "power2.in" }, fOut);
-              return;
             }
             (fxNodes[i] || []).forEach((n, k) => {
-              if (n.kind === "pop") {
+              if (n.kind === "card") {
+                tl.fromTo(n.el, { x: 140, opacity: 0, rotation: n.rot + 8 }, { x: 0, opacity: 1, rotation: n.rot, duration: 0.7, ease: "power3.out" }, fIn - 0.15);
+                tl.to(n.el, { opacity: 0, x: 40, duration: 0.3, ease: "power2.in" }, fOut);
+              } else if (n.kind === "pop") {
                 tl.fromTo(n.el, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, fIn + k * 0.14);
                 tl.to(n.el, { opacity: 0, scale: 0.85, duration: 0.3, ease: "power2.in" }, fOut);
               } else if (n.kind === "pulse") {

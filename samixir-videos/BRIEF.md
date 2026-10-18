@@ -55,3 +55,6 @@ CTA 18–20s. Tekst je preuzet iz korisnikovog paketa promptova.
 
 - Bez adrese samixir.rs (korisnik: sajt ne postoji). Gore levo je samo logo; CTA scena prikazuje veliki samixir logo umesto adrese.
 - CTA podnaslov skraćen na „Pogledaj. Poruči.“ za sve proizvode (korisnik: bez „Osveži“ i sličnih).
+- PANORAMIC M40 (product `m40`, samo plava verzija): oznaka „40 L“ na posudi, kartice sa korisnikovim fotkama
+  (assets/photos/m40-pouring.jpg, m40-yellow.jpg), krugovi boja Inox/Crna/Žuta, završnica „Pogledajte našu ponudu“
+  + „Za cene i detalje pišite nam u poruci.“ + dugme „Majstori Zanata & Alata“. Crtice iz teksta zamenjene zarezom/tačkom.

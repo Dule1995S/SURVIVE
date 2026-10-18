@@ -54,3 +54,4 @@ CTA 18–20s. Tekst je preuzet iz korisnikovog paketa promptova.
 - Sve tvrdnje (50% manje struje, magnetna lopatica itd.) su iz korisnikovog teksta, nisu proveravane.
 
 - Bez adrese samixir.rs (korisnik: sajt ne postoji). Gore levo je samo logo; CTA scena prikazuje veliki samixir logo umesto adrese.
+- CTA podnaslov skraćen na „Pogledaj. Poruči.“ za sve proizvode (korisnik: bez „Osveži“ i sličnih).

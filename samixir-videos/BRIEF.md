@@ -39,6 +39,11 @@ CTA 18–20s. Tekst je preuzet iz korisnikovog paketa promptova.
 - Efekti po proizvodu: brojevi posuda, noćni disk, iskrice (SLUSH); prsten na slavini, hlađenje, orbita mešanja (KAM22);
   para, orbita mešanja, prsten na LED indikatoru (HOT); orbita mešanja, hlađenje, prsten na slavini (M10)
 
+- Druga verzija na plavoj studijskoj pozadini (assets/src/studio-blue.jpg), koju je korisnik poslao uz isti paket.
+  Promenljiva `theme`: `light` (brand kit) ili `studio` (plava). U plavoj verziji su beli naslovi i tekst, beli logo,
+  žuti krug ikonice, proizvod stoji na svetlom „podu“ pozadine. Isečci za tamnu pozadinu su u
+  assets/products/studio/ (tools/studio_cutout.py): senka sa poda pretvorena u tamnu, providni poklopci SLUSH-a „matirani“.
+
 ## Notes
 
 - Bez crtica (em-dash) u tekstu po brand pravilu. Crtice iz originalnog teksta su zamenjene tačkom ili zarezom.

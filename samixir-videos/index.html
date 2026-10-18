@@ -7,6 +7,10 @@
       {"value":"kam22","label":"KAM22"},
       {"value":"hot","label":"HOT SC06"},
       {"value":"m10","label":"PANORAMIC M10"}
+    ]},
+    {"id":"theme","type":"enum","label":"Pozadina","default":"light","options":[
+      {"value":"light","label":"Svetla (brand kit)"},
+      {"value":"studio","label":"Plavi studio"}
     ]}
   ]'
 >
@@ -424,6 +428,61 @@
         background: var(--yellow);
         transform-origin: 0 50%;
       }
+
+      /* ---------- blue studio theme ---------- */
+      #studio-bg {
+        display: none;
+        position: absolute;
+        left: -10px;
+        top: 0;
+        width: 1099px;
+        height: 1463px;
+        -webkit-mask-image: linear-gradient(to bottom, #000 93%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 93%, transparent 100%);
+      }
+      #root.theme-studio {
+        background: linear-gradient(to bottom, #00348a 0%, #00348a 72%, #00296c 84%, #001a4a 100%);
+        color: #ffffff;
+      }
+      .theme-studio #studio-bg {
+        display: block;
+      }
+      .theme-studio .blob,
+      .theme-studio #plate {
+        display: none;
+      }
+      .theme-studio #orbit circle {
+        stroke: #ffffff;
+        stroke-opacity: 0.22;
+      }
+      .theme-studio #brand .url {
+        color: #dce9f5;
+      }
+      .theme-studio #product {
+        filter: drop-shadow(0 30px 34px rgba(0, 10, 40, 0.5));
+      }
+      .theme-studio .headline .l1,
+      .theme-studio .benefit .text,
+      .theme-studio .cta-url,
+      .theme-studio .cta-sub {
+        color: #ffffff;
+      }
+      .theme-studio .benefit .icon {
+        background: var(--yellow);
+        color: var(--navy);
+      }
+      .theme-studio #progress {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .theme-studio #fx-cool .glow {
+        background: radial-gradient(ellipse, rgba(200, 232, 255, 0.55) 0%, rgba(200, 232, 255, 0) 70%);
+      }
+      .theme-studio #fx-cool .flake {
+        color: #ffffff;
+      }
+      .theme-studio .fx-steam path {
+        stroke: #e6f0ff;
+      }
     </style>
   </head>
   <body>
@@ -436,6 +495,7 @@
       data-height="1920"
     >
       <!-- background -->
+      <img id="studio-bg" src="assets/backgrounds/studio-blue.jpg" alt="" data-layout-allow-overflow />
       <div id="blob-blue" class="blob" data-layout-allow-overflow></div>
       <div id="blob-mint" class="blob" data-layout-allow-overflow></div>
       <div id="blob-blue-sm" class="blob"></div>
@@ -694,6 +754,13 @@
 
         const vars = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
         const P = PRODUCTS[vars.product] || PRODUCTS.slush;
+        const STUDIO = vars.theme === "studio";
+        if (STUDIO) {
+          document.getElementById("root").classList.add("theme-studio");
+          document.querySelector("#brand img").src = "assets/brand/samixir-wordmark-white.png";
+          // dark-backdrop cut-outs: floor shadow turned black, clear lids frosted (tools/studio_cutout.py)
+          P.img = P.img.replace("assets/products/", "assets/products/studio/");
+        }
 
         const fit = Math.min(MAX_PW / P.w, MAX_PH / P.h);
         const PW = Math.round(P.w * fit),

@@ -1,0 +1,1010 @@
+<!doctype html>
+<html
+  lang="sr"
+  data-composition-variables='[
+    {"id":"product","type":"enum","label":"Proizvod","default":"slush","options":[
+      {"value":"slush","label":"SLUSH Triple"},
+      {"value":"kam22","label":"KAM22"},
+      {"value":"hot","label":"HOT SC06"},
+      {"value":"m10","label":"PANORAMIC M10"}
+    ]}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Samixir product promo</title>
+    <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Samixir Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        src: url("assets/fonts/inter-cyrillic-ext-wght-normal.woff2") format("woff2");
+        unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+      }
+      @font-face {
+        font-family: "Samixir Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        src: url("assets/fonts/inter-cyrillic-wght-normal.woff2") format("woff2");
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+      @font-face {
+        font-family: "Samixir Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        src: url("assets/fonts/inter-latin-ext-wght-normal.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+          U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+          U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "Samixir Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+          U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      :root {
+        --bg: #f5f7fa;
+        --navy: #0a2540;
+        --yellow: #ffc72c;
+        --ink: #1a1a1a;
+        --gray: #5f6673;
+        --pastel-blue: #dce9f5;
+        --pastel-mint: #e8f2ec;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg);
+        font-family: "Samixir Inter", sans-serif;
+        color: var(--ink);
+      }
+
+      /* ---------- background layer ---------- */
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+      }
+      #blob-blue {
+        width: 780px;
+        height: 780px;
+        left: 640px;
+        top: -170px;
+        background: var(--pastel-blue);
+      }
+      #blob-mint {
+        width: 900px;
+        height: 900px;
+        left: -420px;
+        top: 1300px;
+        background: var(--pastel-mint);
+      }
+      #blob-blue-sm {
+        width: 150px;
+        height: 150px;
+        left: 70px;
+        top: 1180px;
+        background: var(--pastel-blue);
+      }
+      #blob-mint-sm {
+        width: 110px;
+        height: 110px;
+        left: 930px;
+        top: 1500px;
+        background: var(--pastel-mint);
+      }
+
+      /* ---------- brand header ---------- */
+      #brand {
+        position: absolute;
+        left: 80px;
+        top: 118px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      #brand img {
+        display: block;
+        height: 46px;
+        width: auto;
+      }
+      #brand .url {
+        font-size: 26px;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 0.01em;
+      }
+
+      /* ---------- product stage ---------- */
+      #stage {
+        position: absolute;
+        left: 0;
+        top: 540px;
+        width: 1080px;
+        height: 800px;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 4%, #000 96%, transparent 100%);
+        mask-image: linear-gradient(to bottom, transparent 0, #000 4%, #000 96%, transparent 100%);
+      }
+      #plate {
+        position: absolute;
+        left: 170px;
+        top: 30px;
+        width: 740px;
+        height: 740px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffffff 0%, #ffffff 55%, rgba(255, 255, 255, 0) 71%);
+      }
+      #orbit {
+        position: absolute;
+        left: 150px;
+        top: 10px;
+        width: 780px;
+        height: 780px;
+      }
+      #fx-night {
+        position: absolute;
+        left: 170px;
+        top: 30px;
+        width: 740px;
+        height: 740px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 70%, #1d4470 0%, var(--navy) 70%);
+        /* fade out behind the clear lids so their cut-out edges sit on the light canvas */
+        -webkit-mask-image: linear-gradient(to bottom, transparent 24%, #000 46%);
+        mask-image: linear-gradient(to bottom, transparent 24%, #000 46%);
+        opacity: 0;
+      }
+      #fx-night .star {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ffffff;
+      }
+      #fx-cool {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+      }
+      #fx-cool .glow {
+        position: absolute;
+        left: 140px;
+        width: 800px;
+        height: 360px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(120, 178, 232, 0.55) 0%, rgba(120, 178, 232, 0) 70%);
+      }
+      #fx-cool .flake {
+        position: absolute;
+        width: 54px;
+        height: 54px;
+        color: #4f86bd;
+      }
+      #cam,
+      #pan {
+        position: absolute;
+        inset: 0;
+        transform-origin: 50% 50%;
+      }
+      #pbox {
+        position: absolute;
+      }
+      #product {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 34px 38px rgba(10, 37, 64, 0.2));
+      }
+      .fx {
+        position: absolute;
+        opacity: 0;
+      }
+      .fx-badge {
+        width: 84px;
+        height: 84px;
+        margin: -42px 0 0 -42px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: var(--yellow);
+        font-size: 46px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid #ffffff;
+      }
+      .fx-ring {
+        border-radius: 50%;
+        border: 7px solid var(--yellow);
+        box-shadow: 0 0 0 4px rgba(10, 37, 64, 0.85);
+      }
+      .fx-pulse {
+        border-radius: 50%;
+        border: 5px solid var(--yellow);
+      }
+      .fx-spin .orbit-flat {
+        width: 100%;
+        height: 100%;
+        transform: scaleY(0.3);
+      }
+      .fx-spin .orbit-svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        transform-origin: 50% 50%;
+      }
+      .fx-steam path {
+        fill: none;
+        stroke: #9aa8b8;
+        stroke-width: 10;
+        stroke-linecap: round;
+      }
+      .fx-spark {
+        width: 70px;
+        height: 70px;
+        margin: -35px 0 0 -35px;
+        color: var(--yellow);
+      }
+      .fx-spark svg path {
+        stroke: var(--navy);
+      }
+
+      /* ---------- scene text ---------- */
+      .scene {
+        position: absolute;
+        inset: 0;
+      }
+      .scene-inner {
+        position: absolute;
+        inset: 0;
+      }
+      .headline {
+        position: absolute;
+        left: 80px;
+        top: 262px;
+        width: 920px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        font-weight: 750;
+        letter-spacing: -0.025em;
+        line-height: 1.08;
+      }
+      .headline .l1 {
+        display: block;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+      .headline .l2wrap {
+        position: relative;
+        display: block;
+        padding: 2px 20px 8px;
+        margin-left: -20px;
+      }
+      .headline .band {
+        position: absolute;
+        inset: 0;
+        background: var(--yellow);
+        border-radius: 14px;
+        transform-origin: 0 50%;
+      }
+      .headline .l2 {
+        position: relative;
+        display: block;
+        color: var(--navy);
+        white-space: nowrap;
+      }
+      .benefit {
+        position: absolute;
+        left: 80px;
+        top: 1368px;
+        width: 920px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .benefit .icon {
+        flex: 0 0 auto;
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: var(--yellow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .benefit .icon svg {
+        width: 56px;
+        height: 56px;
+      }
+      .benefit .text {
+        display: block;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: var(--ink);
+        max-width: 780px;
+      }
+      .pill {
+        position: absolute;
+        left: 80px;
+        top: 1516px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: 84px;
+        padding: 0 46px;
+        border-radius: 42px;
+        background: var(--ink);
+        color: #ffffff;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: 0.005em;
+        white-space: nowrap;
+      }
+      .pill svg {
+        width: 36px;
+        height: 36px;
+        color: var(--yellow);
+      }
+
+      /* CTA */
+      .cta-url {
+        position: absolute;
+        left: 80px;
+        top: 250px;
+        width: 920px;
+        font-size: 132px;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        line-height: 1;
+        color: var(--navy);
+      }
+      .cta-sub {
+        position: absolute;
+        left: 80px;
+        top: 410px;
+        width: 920px;
+        display: block;
+        font-size: 46px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .cta-rule {
+        position: absolute;
+        left: 80px;
+        top: 392px;
+        width: 220px;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--yellow);
+        transform-origin: 0 50%;
+      }
+
+      /* progress */
+      #progress {
+        position: absolute;
+        left: 80px;
+        top: 1648px;
+        width: 920px;
+        height: 10px;
+        border-radius: 5px;
+        background: #e1e6ee;
+        overflow: hidden;
+      }
+      #progress-fill {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        background: var(--yellow);
+        transform-origin: 0 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="20"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- background -->
+      <div id="blob-blue" class="blob" data-layout-allow-overflow></div>
+      <div id="blob-mint" class="blob" data-layout-allow-overflow></div>
+      <div id="blob-blue-sm" class="blob"></div>
+      <div id="blob-mint-sm" class="blob"></div>
+
+      <!-- product stage -->
+      <div id="stage">
+        <div id="plate"></div>
+        <svg id="orbit" viewBox="0 0 780 780">
+          <circle
+            cx="390"
+            cy="390"
+            r="384"
+            fill="none"
+            stroke="#0a2540"
+            stroke-opacity="0.16"
+            stroke-width="3"
+            stroke-dasharray="4 18"
+            stroke-linecap="round"
+          />
+        </svg>
+        <div id="fx-night"></div>
+        <div id="fx-cool"></div>
+        <div id="cam">
+          <div id="pan">
+            <div id="pbox">
+              <img id="product" src="assets/products/slush-triple.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- brand -->
+      <div id="brand">
+        <img src="assets/brand/samixir-wordmark.png" alt="samixir" />
+        <span class="url">samixir.rs</span>
+      </div>
+
+      <!-- scenes: text layers only; the product layer above is persistent -->
+      <section id="s1" class="scene clip" data-start="0" data-duration="4" data-track-index="1">
+        <div class="scene-inner"></div>
+      </section>
+      <section id="s2" class="scene clip" data-start="4" data-duration="5" data-track-index="1">
+        <div class="scene-inner"></div>
+      </section>
+      <section id="s3" class="scene clip" data-start="9" data-duration="5" data-track-index="1">
+        <div class="scene-inner"></div>
+      </section>
+      <section id="s4" class="scene clip" data-start="14" data-duration="4" data-track-index="1">
+        <div class="scene-inner"></div>
+      </section>
+      <section id="s5" class="scene clip" data-start="18" data-duration="2" data-track-index="1">
+        <div class="scene-inner"></div>
+      </section>
+
+      <div id="progress"><span id="progress-fill"></span></div>
+
+      <audio
+        id="music"
+        src="assets/audio/samixir-bed.m4a"
+        data-start="0"
+        data-duration="20"
+        data-track-index="3"
+        data-volume="0.9"
+      ></audio>
+    </div>
+
+    <script>
+      (function () {
+        // ---------- icons (Lucide, ISC license) ----------
+        const ICONS = {
+          cupSoda:
+            '<path d="m6 8 1.75 12.28a2 2 0 0 0 2 1.72h4.54a2 2 0 0 0 2-1.72L18 8"/><path d="M5 8h14"/><path d="M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0"/><path d="m12 8 1-6h2"/>',
+          moonStar: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/><path d="M20 3v4"/><path d="M22 5h-4"/>',
+          droplets:
+            '<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>',
+          glassWater:
+            '<path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"/><path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"/>',
+          snowflake:
+            '<line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/>',
+          refresh:
+            '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>',
+          coffee:
+            '<path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/>',
+          shield:
+            '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+          citrus:
+            '<path d="M21.66 17.67a1.08 1.08 0 0 1-.04 1.6A12 12 0 0 1 4.73 2.38a1.1 1.1 0 0 1 1.61-.04z"/><path d="M19.65 15.66A8 8 0 0 1 8.35 4.34"/><path d="m14 10-5.5 5.5"/><path d="M14 17.85V10H6.15"/>',
+          hand:
+            '<path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
+          sparkles:
+            '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
+          send: '<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/>',
+        };
+        const svg = (name, extra) =>
+          '<svg viewBox="0 0 24 24" fill="' +
+          (extra && extra.fill ? extra.fill : "none") +
+          '" stroke="currentColor" stroke-width="' +
+          ((extra && extra.sw) || 2) +
+          '" stroke-linecap="round" stroke-linejoin="round">' +
+          ICONS[name] +
+          "</svg>";
+
+        // ---------- per-product copy + camera (focus points are fractions of the cut-out image) ----------
+        const PRODUCTS = {
+          slush: {
+            img: "assets/products/slush-triple.png",
+            w: 519,
+            h: 630,
+            scenes: [
+              { h: ["Три укуса.", "Један уређај."], pill: "Samixir SLUSH Triple", cam: [1, 0.5, 0.5] },
+              {
+                h: ["Независне посуде.", "Нон-стоп освежење."],
+                icon: "cupSoda",
+                text: "3 × 12 L, свака посуда ради самостално",
+                pill: "3 посуде",
+                cam: [1.42, 0.46, 0.33],
+                fx: { type: "badges", at: [[0.18, 0.31], [0.43, 0.31], [0.71, 0.31]] },
+              },
+              {
+                h: ["Паметно.", "Штеди енергију."],
+                icon: "moonStar",
+                text: "Ноћни режим чува производ уз минимум струје",
+                pill: "Ноћни режим",
+                cam: [0.94, 0.5, 0.5],
+                fx: { type: "night" },
+              },
+              {
+                h: ["Хигијенски.", "Лако растављање."],
+                icon: "droplets",
+                text: "Сви делови у контакту са напитком се брзо и лако скидају",
+                pill: "Лако одржавање",
+                cam: [1.3, 0.5, 0.6],
+                fx: { type: "sparkles", at: [[0.1, 0.42], [0.9, 0.36], [0.26, 0.88], [0.78, 0.86]] },
+              },
+              { cta: "Погледај. Поручи. Освежи.", cam: [0.8, 0.5, 0.5] },
+            ],
+          },
+          kam22: {
+            img: "assets/products/kam22.png",
+            w: 456,
+            h: 910,
+            scenes: [
+              { h: ["Јогурт са пеном.", "Онако како треба."], pill: "Samixir KAM22", cam: [1, 0.5, 0.5] },
+              {
+                h: ["Специјална славина.", "Пена при сипању."],
+                icon: "glassWater",
+                text: "Укус остаје стабилан, пена се ствара тек у чаши",
+                pill: "Пенушава славина",
+                cam: [1.9, 0.37, 0.6],
+                fx: { type: "ring", at: [0.38, 0.62], size: 0.3 },
+              },
+              {
+                h: ["Велика рашладна база.", "50% мање струје."],
+                icon: "snowflake",
+                text: "Брзо и равномерно хлађење до последње капи",
+                pill: "Штеди енергију",
+                cam: [1, 0.5, 0.5],
+                fx: { type: "cool", base: 0.45 },
+              },
+              {
+                h: ["Магнетна лопатица.", "Без цурења."],
+                icon: "refresh",
+                text: "Нема заптивке. Мотор заштићен, хомогено мешање",
+                pill: "Магнетни систем",
+                cam: [1.55, 0.49, 0.22],
+                fx: { type: "spin", at: [0.4, 0.26], size: 0.85 },
+              },
+              { cta: "Погледај. Поручи. Послужи.", cam: [0.82, 0.5, 0.5] },
+            ],
+          },
+          hot: {
+            img: "assets/products/hot-sc06.png",
+            w: 468,
+            h: 830,
+            scenes: [
+              { h: ["Топло.", "Увек спремно."], pill: "Samixir HOT SC06", cam: [1, 0.5, 0.5] },
+              {
+                h: ["Бен-мари систем.", "Без загоревања."],
+                icon: "coffee",
+                text: "Равномерно загревање за салеп, чоколаду, кафу и чај",
+                pill: "Бен-мари",
+                cam: [1.45, 0.5, 0.24],
+                fx: { type: "steam", at: [0.5, 0.04] },
+              },
+              {
+                h: ["Стално мешање.", "Без груменчића."],
+                icon: "refresh",
+                text: "Напитак остаје глатак и уједначен све време",
+                pill: "Непрекидно мешање",
+                cam: [1, 0.5, 0.5],
+                fx: { type: "spin", at: [0.5, 0.3], size: 1.0 },
+              },
+              {
+                h: ["Паметно.", "Безбедно."],
+                icon: "shield",
+                text: "Аутоматско искључење и индикатор нивоа воде",
+                pill: "Сигурност прва",
+                cam: [1.75, 0.24, 0.72],
+                fx: { type: "ring", at: [0.165, 0.745], size: 0.2 },
+              },
+              { cta: "Погледај. Поручи. Загреј.", cam: [0.82, 0.5, 0.5] },
+            ],
+          },
+          m10: {
+            img: "assets/products/panoramic-m10.png",
+            w: 900,
+            h: 1892,
+            scenes: [
+              {
+                h: ["Освежење на длану.", "Елегантно."],
+                pill: "Samixir PANORAMIC M10",
+                cam: [1, 0.5, 0.5],
+              },
+              {
+                h: ["Споро мешање.", "За сокове са комадићима."],
+                icon: "citrus",
+                text: "Савршено за природне сокове, млеко, хладну кафу и чај",
+                pill: "Споро мешање",
+                cam: [1.4, 0.45, 0.22],
+                fx: { type: "spin", at: [0.45, 0.24], size: 0.9, slow: true },
+              },
+              {
+                h: ["Велика база.", "50% мање струје."],
+                icon: "snowflake",
+                text: "Равномерно хлађење уз минималну потрошњу",
+                pill: "Еко рашлада",
+                cam: [1, 0.5, 0.5],
+                fx: { type: "cool", base: 0.47 },
+              },
+              {
+                h: ["Једном руком.", "Лако за прање."],
+                icon: "hand",
+                text: "Славина се користи једном руком, сви делови лако се перу",
+                pill: "Практично",
+                cam: [1.9, 0.39, 0.58],
+                fx: { type: "ring", at: [0.4, 0.57], size: 0.26 },
+              },
+              { cta: "Погледај. Поручи. Освежи.", cam: [0.82, 0.5, 0.5] },
+            ],
+          },
+        };
+
+        // ---------- layout constants ----------
+        const STAGE_W = 1080,
+          STAGE_H = 800,
+          MAX_PW = 820,
+          MAX_PH = 690;
+        const SCENES = [
+          { id: "s1", t0: 0, t1: 4 },
+          { id: "s2", t0: 4, t1: 9 },
+          { id: "s3", t0: 9, t1: 14 },
+          { id: "s4", t0: 14, t1: 18 },
+          { id: "s5", t0: 18, t1: 20 },
+        ];
+
+        const vars = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+        const P = PRODUCTS[vars.product] || PRODUCTS.slush;
+
+        const fit = Math.min(MAX_PW / P.w, MAX_PH / P.h);
+        const PW = Math.round(P.w * fit),
+          PH = Math.round(P.h * fit);
+        const pbox = document.getElementById("pbox");
+        pbox.style.width = PW + "px";
+        pbox.style.height = PH + "px";
+        pbox.style.left = Math.round((STAGE_W - PW) / 2) + "px";
+        pbox.style.top = Math.round((STAGE_H - PH) / 2) + "px";
+        document.getElementById("product").src = P.img;
+
+        // ---------- scene text DOM ----------
+        SCENES.forEach((s, i) => {
+          const d = P.scenes[i];
+          const el = document.querySelector("#" + s.id + " .scene-inner");
+          if (d.cta) {
+            el.innerHTML =
+              '<div class="cta-url">samixir.rs</div>' +
+              '<div class="cta-rule"></div>' +
+              '<span class="cta-sub">' + d.cta + "</span>" +
+              '<div class="pill">' + svg("send") + "<span>Пошаљи поруку</span></div>";
+            return;
+          }
+          let html =
+            '<div class="headline"><span class="l1">' + d.h[0] + "</span>" +
+            '<span class="l2wrap"><span class="band"></span><span class="l2">' + d.h[1] + "</span></span></div>";
+          if (d.icon) {
+            html +=
+              '<div class="benefit"><div class="icon">' + svg(d.icon) + "</div>" +
+              '<span class="text">' + d.text + "</span></div>";
+          }
+          html += '<div class="pill"><span>' + d.pill + "</span></div>";
+          el.innerHTML = html;
+        });
+
+        // ---------- product-anchored effects ----------
+        const fxNodes = []; // per scene index: list of {el, kind}
+        const at = (fx, fy) => ({ left: fx * PW + "px", top: fy * PH + "px" });
+        function addFx(i, html, style) {
+          const n = document.createElement("div");
+          n.className = "fx";
+          n.innerHTML = html;
+          Object.assign(n.style, style);
+          pbox.appendChild(n);
+          return n;
+        }
+        P.scenes.forEach((d, i) => {
+          const fx = d.fx;
+          if (!fx) return;
+          const list = (fxNodes[i] = []);
+          if (fx.type === "badges") {
+            fx.at.forEach((p, k) => {
+              const n = addFx(i, String(k + 1), at(p[0], p[1]));
+              n.classList.add("fx-badge");
+              list.push({ el: n, kind: "pop" });
+            });
+          } else if (fx.type === "sparkles") {
+            fx.at.forEach((p) => {
+              const n = addFx(i, svg("sparkles", { fill: "currentColor", sw: 1.4 }), at(p[0], p[1]));
+              n.classList.add("fx-spark");
+              list.push({ el: n, kind: "spark" });
+            });
+          } else if (fx.type === "ring") {
+            const size = Math.round(fx.size * PW);
+            const box = { width: size + "px", height: size + "px", marginLeft: -size / 2 + "px", marginTop: -size / 2 + "px" };
+            const pulse = addFx(i, "", Object.assign(at(fx.at[0], fx.at[1]), box));
+            pulse.classList.add("fx-pulse");
+            const ring = addFx(i, "", Object.assign(at(fx.at[0], fx.at[1]), box));
+            ring.classList.add("fx-ring");
+            list.push({ el: ring, kind: "pop" }, { el: pulse, kind: "pulse" });
+          } else if (fx.type === "spin") {
+            const size = Math.round(fx.size * PW);
+            // a flattened orbit around the bowl: two arcs with arrowheads travel around an ellipse
+            const arrow = (deg) => {
+              const a = (deg * Math.PI) / 180,
+                px = 100 + 90 * Math.cos(a),
+                py = 100 + 90 * Math.sin(a),
+                tx = -Math.sin(a),
+                ty = Math.cos(a),
+                nx = Math.cos(a),
+                ny = Math.sin(a);
+              const pts = [
+                [px + tx * 16, py + ty * 16],
+                [px - tx * 6 + nx * 13, py - ty * 6 + ny * 13],
+                [px - tx * 6 - nx * 13, py - ty * 6 - ny * 13],
+              ];
+              return '<path d="M' + pts.map((p) => p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" L") + ' z" fill="#ffc72c" stroke="#0a2540" stroke-width="3" stroke-linejoin="round"/>';
+            };
+            const n = addFx(
+              i,
+              '<div class="orbit-flat"><svg class="orbit-svg" viewBox="-10 -10 220 220">' +
+                '<circle cx="100" cy="100" r="90" fill="none" stroke="#0a2540" stroke-opacity="0.22" stroke-width="7"/>' +
+                '<circle cx="100" cy="100" r="90" fill="none" stroke="#0a2540" stroke-width="9" stroke-dasharray="120 162.74" stroke-linecap="round"/>' +
+                arrow(76.4) +
+                arrow(256.4) +
+                "</svg></div>",
+              Object.assign(at(fx.at[0], fx.at[1]), {
+                width: size + "px",
+                height: size + "px",
+                marginLeft: -size / 2 + "px",
+                marginTop: -size / 2 + "px",
+              })
+            );
+            n.classList.add("fx-spin");
+            list.push({ el: n, kind: "spin", slow: !!fx.slow });
+          } else if (fx.type === "steam") {
+            const w = Math.round(PW * 0.62),
+              h = Math.round(PH * 0.34);
+            [-0.26, 0, 0.26].forEach((dx, k) => {
+              const n = addFx(
+                i,
+                '<svg viewBox="0 0 60 200" width="100%" height="100%"><path d="M30 196 C 6 160, 54 130, 30 96 S 8 34, 30 4"/></svg>',
+                {
+                  left: (fx.at[0] + dx * 0.9) * PW - 30 + "px",
+                  top: fx.at[1] * PH - h + "px",
+                  width: "60px",
+                  height: h + "px",
+                }
+              );
+              n.classList.add("fx-steam");
+              list.push({ el: n, kind: "steam", k: k });
+            });
+          }
+        });
+
+        // ---------- stage effects (night disc, cooling glow) ----------
+        const night = document.getElementById("fx-night");
+        // stars sit in the side bands of the disc that the product does not cover
+        const STAR_POS = [[34, 400], [58, 318], [78, 520], [128, 610], [696, 350], [706, 452], [668, 560], [606, 640]];
+        STAR_POS.forEach((p, k) => {
+          const s = document.createElement("i");
+          s.className = "star";
+          s.style.left = p[0] + "px";
+          s.style.top = p[1] + "px";
+          s.style.transform = "scale(" + (0.6 + (k % 3) * 0.35) + ")";
+          night.appendChild(s);
+        });
+
+        const cool = document.getElementById("fx-cool");
+        const coolScene = P.scenes.findIndex((d) => d.fx && d.fx.type === "cool");
+        if (coolScene > 0) {
+          const baseY = (STAGE_H - PH) / 2 + P.scenes[coolScene].fx.base * PH;
+          const glow = document.createElement("div");
+          glow.className = "glow";
+          glow.style.top = baseY - 180 + "px";
+          cool.appendChild(glow);
+          const FLAKES = [[150, 120], [860, 180], [230, 470], [820, 520], [120, 690], [900, 700]];
+          FLAKES.forEach((p) => {
+            const f = document.createElement("div");
+            f.className = "flake";
+            f.style.left = p[0] + "px";
+            f.style.top = p[1] + "px";
+            f.innerHTML = svg("snowflake", { sw: 2.2 });
+            cool.appendChild(f);
+          });
+        }
+
+        // ---------- headline sizing ----------
+        const hf = window.__hyperframes;
+        function fitSize(text, base, maxWidth) {
+          if (hf && hf.fitTextFontSize) {
+            return hf.fitTextFontSize(text, {
+              fontFamily: "Samixir Inter",
+              fontWeight: 750,
+              maxWidth: maxWidth,
+              baseFontSize: base,
+              minFontSize: 54,
+              step: 2,
+            }).fontSize;
+          }
+          return base;
+        }
+
+        // ---------- timeline ----------
+        function build() {
+          SCENES.forEach((s, i) => {
+            const d = P.scenes[i];
+            if (d.cta) return;
+            const size = Math.min(fitSize(d.h[0], 104, 900), fitSize(d.h[1], 104, 860));
+            document.querySelector("#" + s.id + " .headline").style.fontSize = size + "px";
+          });
+
+          const tl = gsap.timeline({ paused: true });
+
+          // ambient background
+          tl.fromTo("#blob-blue", { x: 0, y: 0, scale: 1 }, { x: -40, y: 50, scale: 1.08, duration: 20, ease: "sine.inOut" }, 0);
+          tl.fromTo("#blob-mint", { x: 0, y: 0, scale: 1 }, { x: 50, y: -40, scale: 1.06, duration: 20, ease: "sine.inOut" }, 0);
+          tl.fromTo("#blob-blue-sm", { y: 0 }, { y: -60, duration: 20, ease: "sine.inOut" }, 0);
+          tl.fromTo("#blob-mint-sm", { y: 0 }, { y: 50, duration: 20, ease: "sine.inOut" }, 0);
+          tl.fromTo("#orbit", { rotation: 0 }, { rotation: 60, duration: 20, ease: "none" }, 0);
+          tl.fromTo("#plate", { scale: 0.96 }, { scale: 1.03, duration: 20, ease: "sine.inOut" }, 0);
+          tl.fromTo("#progress-fill", { scaleX: 0 }, { scaleX: 1, duration: 20, ease: "none" }, 0);
+          tl.fromTo("#brand", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.1);
+
+          // product entrance (hook)
+          tl.fromTo(
+            "#pbox",
+            { x: 420, rotation: 7, scale: 0.88, opacity: 0 },
+            { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 1.1, ease: "expo.out" },
+            0.15
+          );
+
+          // camera: move between per-scene framings, then a slow push while the scene holds
+          const camState = (c) => ({
+            scale: c[0],
+            x: -(c[1] - 0.5) * PW,
+            y: -(c[2] - 0.5) * PH,
+          });
+          let prev = { scale: 1, x: 0, y: 0 };
+          SCENES.forEach((s, i) => {
+            const c = camState(P.scenes[i].cam);
+            const move = i === 0 ? 0 : 0.9;
+            const tIn = i === 0 ? 0 : s.t0 - 0.15;
+            if (move) {
+              tl.fromTo("#cam", { scale: prev.scale }, { scale: c.scale, duration: move, ease: "power3.inOut", immediateRender: false }, tIn);
+              tl.fromTo("#pan", { x: prev.x, y: prev.y }, { x: c.x, y: c.y, duration: move, ease: "power3.inOut", immediateRender: false }, tIn);
+            } else {
+              tl.set("#pan", { x: c.x, y: c.y }, 0);
+            }
+            const holdStart = tIn + move;
+            const holdEnd = i < SCENES.length - 1 ? SCENES[i + 1].t0 - 0.15 : s.t1;
+            const drift = i === SCENES.length - 1 ? 1.02 : 1.045;
+            tl.fromTo(
+              "#cam",
+              { scale: c.scale },
+              { scale: c.scale * drift, duration: holdEnd - holdStart, ease: "sine.inOut", immediateRender: i === 0 },
+              holdStart
+            );
+            prev = { scale: c.scale * drift, x: c.x, y: c.y };
+          });
+
+          // scene text in/out
+          SCENES.forEach((s, i) => {
+            const d = P.scenes[i];
+            const root = "#" + s.id + " ";
+            const t = s.t0 + (i === 0 ? 0.35 : 0.08);
+            if (d.cta) {
+              tl.fromTo(root + ".cta-url", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, t);
+              tl.fromTo(root + ".cta-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, t + 0.2);
+              tl.fromTo(root + ".cta-sub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, t + 0.3);
+              tl.fromTo(root + ".pill", { y: 40, opacity: 0, scale: 0.94 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, t + 0.45);
+              tl.fromTo(root + ".pill", { scale: 1 }, { scale: 1.05, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, t + 1.0);
+            } else {
+              tl.fromTo(root + ".l1", { y: 44, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, t);
+              tl.fromTo(root + ".band", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.inOut" }, t + 0.15);
+              tl.fromTo(root + ".l2", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, t + 0.3);
+              if (d.icon) {
+                tl.fromTo(root + ".benefit .icon", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.8)" }, t + 0.5);
+                tl.fromTo(root + ".benefit .text", { x: -36, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: "power2.out" }, t + 0.6);
+              }
+              tl.fromTo(root + ".pill", { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, t + (d.icon ? 0.75 : 0.55));
+              // exit (no exit on the last text scene before CTA is needed differently: all exit the same way)
+              tl.fromTo(root + ".scene-inner", { opacity: 1, y: 0 }, { opacity: 0, y: -26, duration: 0.35, ease: "power2.in", immediateRender: false }, s.t1 - 0.35);
+            }
+
+            // effects
+            const fx = d.fx;
+            if (!fx) return;
+            const fIn = s.t0 + 0.55,
+              fOut = s.t1 - 0.4;
+            if (fx.type === "night") {
+              tl.fromTo("#fx-night", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, s.t0 + 0.1);
+              tl.fromTo("#fx-night .star", { opacity: 0.25 }, { opacity: 1, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 7, stagger: { each: 0.05 }, immediateRender: false }, s.t0 + 0.5);
+              tl.to("#fx-night", { opacity: 0, duration: 0.45, ease: "power2.in" }, fOut);
+              return;
+            }
+            if (fx.type === "cool") {
+              tl.fromTo("#fx-cool", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, s.t0 + 0.3);
+              tl.fromTo("#fx-cool .glow", { scale: 0.7 }, { scale: 1.1, duration: s.t1 - s.t0, ease: "sine.inOut" }, s.t0);
+              tl.fromTo("#fx-cool .flake", { y: -30, rotation: 0 }, { y: 80, rotation: 120, duration: s.t1 - s.t0, ease: "none", stagger: 0.08 }, s.t0);
+              tl.to("#fx-cool", { opacity: 0, duration: 0.45, ease: "power2.in" }, fOut);
+              return;
+            }
+            (fxNodes[i] || []).forEach((n, k) => {
+              if (n.kind === "pop") {
+                tl.fromTo(n.el, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, fIn + k * 0.14);
+                tl.to(n.el, { opacity: 0, scale: 0.85, duration: 0.3, ease: "power2.in" }, fOut);
+              } else if (n.kind === "pulse") {
+                tl.fromTo(n.el, { scale: 1, opacity: 0.9 }, { scale: 1.9, opacity: 0, duration: 0.9, ease: "power2.out", repeat: 2, immediateRender: false }, fIn + 0.3);
+              } else if (n.kind === "spark") {
+                tl.fromTo(n.el, { scale: 0, rotation: -45, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.45, ease: "back.out(2.2)" }, fIn + k * 0.18);
+                tl.fromTo(n.el, { scale: 1 }, { scale: 0.75, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, fIn + 0.5 + k * 0.18);
+                tl.to(n.el, { opacity: 0, duration: 0.3, ease: "power2.in" }, fOut);
+              } else if (n.kind === "spin") {
+                tl.fromTo(n.el, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, fIn);
+                tl.fromTo(n.el.querySelector(".orbit-svg"), { rotation: 0 }, { rotation: n.slow ? 300 : 540, duration: s.t1 - fIn, ease: "none" }, fIn);
+                tl.to(n.el, { opacity: 0, duration: 0.3, ease: "power2.in" }, fOut);
+              } else if (n.kind === "steam") {
+                tl.fromTo(
+                  n.el,
+                  { y: 40, opacity: 0, scaleX: 1 },
+                  { keyframes: [{ y: 0, opacity: 0.85, duration: 0.6 }, { y: -50, opacity: 0, scaleX: 1.3, duration: 0.7 }], ease: "sine.inOut", repeat: 2, immediateRender: false },
+                  fIn - 0.2 + n.k * 0.35
+                );
+              }
+            });
+          });
+
+          // CTA: product steps back but stays the hero
+          tl.fromTo("#orbit", { opacity: 1 }, { opacity: 0.5, duration: 0.5, immediateRender: false }, 18);
+
+          window.__timelines["main"] = tl;
+          if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+        }
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(build);
+        } else {
+          build();
+        }
+      })();
+    </script>
+  </body>
+</html>
